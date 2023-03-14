@@ -34,11 +34,11 @@ namespace Back_CRUDs_BD
         //Estamos ocultandola, para cuando la heredemos en msql o sql, va a cambiar
         public object dr;
         ////------MÉTODOS--------////
-        public abstract bool insertar(string tabla, List<string>campos, List<string>valores);
-        public abstract bool modificar(string tabla, List<string>campos, List<string>valores, int id);
+        public abstract bool insertar(string tabla, List<string>campos, List<valoresAInsertar>valores);
+        public abstract bool modificar(string tabla, List<string>campos, List<valoresAInsertar>valores, int id);
         public abstract bool eliminar(string tabla, int id);
-        public abstract object consultar(string tabla);
-        public abstract object consultar(string tabla, string criterioBusqueda);
+        public abstract List<object[]> consultar(string tabla);
+        public abstract List<object[]> consultar(string tabla, string criterioBusqueda);
 
 
 

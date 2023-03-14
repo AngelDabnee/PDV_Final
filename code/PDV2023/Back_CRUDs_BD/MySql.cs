@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.VisualBasic;
+using Org.BouncyCastle.Ocsp;
 
 namespace Back_CRUDs_BD
 {
@@ -16,9 +17,8 @@ namespace Back_CRUDs_BD
         /// </summary>
         MySqlConnection con;
         MySqlCommand comando;
-        MySqlDataAdapter dr;
+        MySqlDataReader dr;
         //Variables de identificador. 
-        int id; 
         public MySql(string host, string us, string pwd, string bd, string puerto = "3306") //Haremos que reciban estos valores. 
         {
             //Inicializamos los valores de conexión. 
@@ -26,7 +26,7 @@ namespace Back_CRUDs_BD
             //creamos la conexión con el conection string
             con = new MySqlConnection(connectionString);
         }
-        public override bool insertar(string tabla, List<string> campos, List<string> valores)
+        public override bool insertar(string tabla, List<string> campos, List<valoresAInsertar> valores)
         {//Programaré el esqueleto de cada uno de los métodos. 
             bool resultado = false;
             try
@@ -43,19 +43,16 @@ namespace Back_CRUDs_BD
                     camposConcat = camposConcat.Remove(camposConcat.Length - 1);//Con este removemos el último caracter de la cadena
                     //Agregaremos a la interpolación las '' para la query
                     string valoresConcat = "";
-                    foreach (var valor in valores)
+                    foreach (valoresAInsertar valor in valores)
                     {
-
-                        if (int.TryParse(valor, out int numeroEntero))//Esto lo utilizamos para separar si el valor es entero solo agregarle las comas
+                        if (valor.llevaApostrofes)
                         {
-                            valoresConcat = "," + numeroEntero.ToString() + ",";
-                        }
-                        else if (double.TryParse(valor, out double numeroDouble))//Si el valor fuese double le agregariamos solo las comas
-                        {
-                            valoresConcat += "," + numeroDouble.ToString() + ",";
+                            valoresConcat += "'" + valor + "'";
                         }
                         else
-                            valoresConcat += "'" + valor + "',"; //si el valor es un string, se agrega el apostrofe al inicio, final y la separación de coma 
+                        {
+                            valoresConcat += valor + ",";
+                        }
                     }
                     valoresConcat = valoresConcat.Remove(valoresConcat.Length - 1);//Eliminamos la última coma que se encuentre. 
                     //Comando revisar el nombre de la tabla
@@ -93,7 +90,7 @@ namespace Back_CRUDs_BD
             //Regresamos el resultado
             return resultado; 
         }
-        public override bool modificar(string tabla, List<string> campos, List<string> valores, int id)
+        public override bool modificar(string tabla, List<string> campos, List<valoresAInsertar> valores, int id)
         {
             bool resultado = false;
             try
@@ -104,31 +101,14 @@ namespace Back_CRUDs_BD
                     con.Open();
                     //Agregaremos las comas en la query, para los campos que seleccionaremos. 
                     string camposConcat = "";
-                    foreach (var campo in campos)
+                    for (int i = 0; i < campos.Count; i++)
                     {
-                        camposConcat += campos + ",";
+                        camposConcat += campos[i] + "=" + (valores[i].llevaApostrofes ? "'" + valores[i].valor + "'," : valores[i].valor + "',");
+
                     }
-                    camposConcat = camposConcat.Remove(camposConcat.Length - 1);//Eliminaremos la última coma.
-                    //Para los valores, haremos lo mismo, solo que aquí condicionaremos para saber si es un número int o double o una cadena de string. 
-                    string valorConcat = "";
-                    foreach (var valor in valores)
-                    {
-                        if (int.TryParse(valor, out int valorEntero))
-                        {
-                            valorConcat = "," + valorEntero + ",";
-                        }
-                        else if (double.TryParse(valor, out double valorDouble))
-                        {
-                            valorConcat = "," + valorDouble + ",";
-                        }
-                        else
-                        {
-                            valorConcat = "'" + valor + "',";
-                        }
-                    }
-                    valorConcat = valorConcat.Remove(valorConcat.Length - 1);
+                    camposConcat = camposConcat.Remove(camposConcat.Length - 1);
                     //instanciamos la query. 
-                    comando = new MySqlCommand($"UPDATE {tabla} SET {camposConcat} = {valorConcat} WHERE id = {this.id};");
+                    comando = new MySqlCommand($"UPDATE {tabla} SET {camposConcat} = {camposConcat} WHERE id = {id};");
                     //Relacionamos el comando. 
                     comando.Connection = con;
                     //Ejecutamos la query. 
@@ -141,7 +121,6 @@ namespace Back_CRUDs_BD
                     else
                     {
                         resultado = false;
-                        this.msgError = "ERROR AL ACTUALIZAR LOS DATOS";
                     }
                 }
             }
@@ -171,7 +150,7 @@ namespace Back_CRUDs_BD
                 {
                     con.Open();
                     //Ejecutamos el comando. 
-                    comando = new MySqlCommand($"DELET FROM {tabla} WHERE id = {this.id}");
+                    comando = new MySqlCommand($"DELET FROM {tabla} WHERE id = {id}");
                     //ejecutamos la conexión. 
                     comando.Connection = con;
                     //realizamos la query
@@ -206,14 +185,109 @@ namespace Back_CRUDs_BD
             }
             return resultado;
         }
-        public override object consultar(string tabla)
+        public override List<object[]> consultar(string tabla)//PAra que me devuelva una lista de arreglos. 
         {
-            throw new NotImplementedException();
+            List<object[]> resultado = new List<object[]>();
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    comando = new MySqlCommand($"SELECT * FROM {tabla}");//Ejecutar la conexión
+                    dr = comando.ExecuteReader();//Para realizar la query. 
+                    if (dr.HasRows)
+                    {
+                        //leemos 
+                        while (dr.Read())
+                        {
+                            //cada elemento del object
+                            object[] registro = new object[dr.FieldCount];//para saber los campos que tiene. 
+                            for (int i = 0; i < dr.FieldCount; i++)
+                            {
+                                registro[i] = dr.GetValue(i);//procesamos el arreglo para los datos. para agregar el campo al indice registro
+                            }
+                            resultado.Add(registro);//ya que pase ya lo agregamos. 
+                        }
+
+                    }
+                    else
+                    {
+                        this.msgError = $"ERROR, NO EXISTEN REGISTROS EN LA TABLA {tabla}.";
+                        //Que devolvemos. 
+                        resultado = new List<object[]>(); //arreglo de object, nos revolverá la devolución. 
+                    }
+                }
+
+            }
+            catch (MySqlException mex)
+            {
+                this.msgError = $"NO SE PUDO REALIZAR LA CONSULTA A BASE DE DATOS, {mex.Message}";
+            }
+            catch (Exception ex)
+            {
+                this.msgError = $"ERROR GENERAL DE LA APLICACIÓN, {ex.Message}";
+            }
+            finally 
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return resultado; 
         }
 
-        public override object consultar(string tabla, string criterioBusqueda)
+        public override List<object[]> consultar(string tabla, string criterioBusqueda)
         {
-            throw new NotImplementedException();
+            List<object[]> resultado = new List<object[]>();
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    comando = new MySqlCommand($"SELECT * FROM {tabla} WHERE {criterioBusqueda}");//Ejecutar la conexión, esto es para el criterio de busqueda. 
+                    dr = comando.ExecuteReader();//Para realizar la query. 
+                    if (dr.HasRows)
+                    {
+                        //leemos 
+                        while (dr.Read())
+                        {
+                            //cada elemento del object
+                            object[] registro = new object[dr.FieldCount];//para saber los campos que tiene. 
+                            for (int i = 0; i < dr.FieldCount; i++)
+                            {
+                                registro[i] = dr.GetValue(i);//procesamos el arreglo para los datos. para agregar el campo al indice registro
+                            }
+                            resultado.Add(registro);//ya que pase ya lo agregamos. 
+                        }
+
+                    }
+                    else
+                    {
+                        this.msgError = $"ERROR, NO EXISTEN REGISTROS EN LA TABLA {tabla}.";
+                        //Que devolvemos. 
+                        resultado = new List<object[]>(); //arreglo de object, nos revolverá la devolución. 
+                    }
+                }
+
+            }
+            catch (MySqlException mex)
+            {
+                this.msgError = $"NO SE PUDO REALIZAR LA CONSULTA A BASE DE DATOS, {mex.Message}";
+            }
+            catch (Exception ex)
+            {
+                this.msgError = $"ERROR GENERAL DE LA APLICACIÓN, {ex.Message}";
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return resultado;
+
         }
     }
 }

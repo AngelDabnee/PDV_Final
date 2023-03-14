@@ -13,7 +13,7 @@ namespace Back_CRUDs_BD
             CRUDS_BD baseDatos;
             //Podemos crear las mismas para mysql o sqlServer
             baseDatos = new MySql("LocalHost", "Root", "pwd", "GameStore");//Como solo tenemos un "puerto" se queda el valor. 
-            baseDatos.insertar("productos", new List<string>() { "id", "nombre", "precio" }, new List<string>() { "12", "asd", "12"});   
+            baseDatos.insertar("productos", new List<string>() { "id", "nombre", "precio" }, new List<valoresAInsertar>() {});   
 
 
         }
