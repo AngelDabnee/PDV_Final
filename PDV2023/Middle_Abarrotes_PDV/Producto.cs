@@ -51,7 +51,7 @@ namespace Middle_gamestore_PDV
         {
             List<string> nombresCampos = new List<string>()
             {
-                    "nombre", "descripcion", "precio", "cod_barras", "imagen", "unidad"
+                    "nombre", "descripcion", "precio", "cod_barra", "imagen", "unidad"
             };
 
             List<ValoresAInsertar> vals = new List<ValoresAInsertar>();
@@ -113,7 +113,7 @@ namespace Middle_gamestore_PDV
         {
 			Producto prodResultado = new Producto();//es un producto nuevo
 
-            List<object[]> res = this.bd.consulta("productos", "cod_barras=" + codBarras);
+            List<object[]> res = this.bd.consulta("productos", "cod_barra=" + codBarras);
             //validamos que traig un elemento la lista
             if (res.Count == 1)
             {

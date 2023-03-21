@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Back_CRUDs_BD", "Back_CRUDs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middle_gamestore_PDV", "Middle_Abarrotes_PDV\Middle_gamestore_PDV.csproj", "{D1234DB8-F094-4484-9921-9F828D947951}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinForm_gamestore_pdv2", "WinForm_gamestore_pdv\WinForm_gamestore_pdv2.csproj", "{8EF73150-EAD6-47D6-93C5-25558615FAB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindForm_game", "WindForm_game\WindForm_game.csproj", "{5B8C84C6-6528-4C23-B9DB-6988D05925C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{D1234DB8-F094-4484-9921-9F828D947951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1234DB8-F094-4484-9921-9F828D947951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1234DB8-F094-4484-9921-9F828D947951}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EF73150-EAD6-47D6-93C5-25558615FAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EF73150-EAD6-47D6-93C5-25558615FAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EF73150-EAD6-47D6-93C5-25558615FAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EF73150-EAD6-47D6-93C5-25558615FAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8C84C6-6528-4C23-B9DB-6988D05925C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8C84C6-6528-4C23-B9DB-6988D05925C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8C84C6-6528-4C23-B9DB-6988D05925C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8C84C6-6528-4C23-B9DB-6988D05925C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

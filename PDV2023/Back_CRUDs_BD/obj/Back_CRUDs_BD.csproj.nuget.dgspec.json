@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj": {}
+    "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj": {
+    "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj",
+        "projectUniqueName": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj",
         "projectName": "Back_CRUDs_BD",
-        "projectPath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj",
+        "projectPath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj",
         "packagesPath": "C:\\Users\\Uesda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Back_CRUDs_BD\\obj\\",
+        "outputPath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Back_CRUDs_BD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P1gAJA6WcNH2fPMS2s4J3eaPXjuLcRDVh2R+XuJp8lAQPfwLuIru7SC2fhWGDt0ojk4p5zo7I6svuciNSgNnnw==",
+  "dgSpecHash": "+udMbOvmQohJxsKo707XXC7XDv58v8ldif1N0mXPqSbYR1vzTCHp1hX6HxX1JczpjK7t9SjIwUQXxfRzDDikQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Middle_Abarrotes_PDV\\Middle_gamestore_PDV.csproj",
+  "projectFilePath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Middle_Abarrotes_PDV\\Middle_gamestore_PDV.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Uesda\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\Uesda\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",

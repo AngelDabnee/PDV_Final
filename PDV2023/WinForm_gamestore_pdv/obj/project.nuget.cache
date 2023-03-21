@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JH0btK5+4FrBoKR7WP/qffmkOyT5aYj5GtEHrgpO4pS0pnOpx/B6acoPew7Nk2cDgaoGLdOII2gF4/qJmV8X+A==",
+  "dgSpecHash": "RHvdPIBARL67EYENfwZrh8enGaoUj1TSsFemjwtBXR0xO3LFzmQVlbqycQcAer1bNZWiVCVTQXB1dcEoZ/ueaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\WinForm_gamestore_pdv\\WinForm_gamestore_pdv2.csproj",
+  "projectFilePath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\WinForm_gamestore_pdv\\WinForm_gamestore_pdv2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Uesda\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
     "C:\\Users\\Uesda\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

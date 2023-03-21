@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lvYEBBn9JkSHMk3lAeeiExZPFBbeVNzGm7Zs3kw0B4SjOzqhTa/DFq9WBQPr53FNyKyWqr6k8NJrUh/Uujo/yA==",
+  "dgSpecHash": "fPXqzml2PlGshn0t/aH6ZotKIRXY+Ya0Z5qkxnhdwhKLh6YcaSUyNvHdiEimJpZgO9EFGBCqOXL4HzNygVfg0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj",
+  "projectFilePath": "C:\\Users\\Uesda\\source\\repos\\PDV_GameStore_Final\\PDV_Final\\PDV2023\\Back_CRUDs_BD\\Back_CRUDs_BD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Uesda\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\Uesda\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
