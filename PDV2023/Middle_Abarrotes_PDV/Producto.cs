@@ -109,55 +109,15 @@ namespace Middle_gamestore_PDV
 			return precio;
 		}
 
-        public Producto consultarPorCodBarras(string codBarras)
+        public List<object[]> consultarPorCodBarras(string codBarras)
         {
-			Producto prodResultado = new Producto();//es un producto nuevo
-
-            List<object[]> res = this.bd.consulta("productos", "cod_barra=" + codBarras);
-            //validamos que traig un elemento la lista
-            if (res.Count == 1)
-            {
-				Consola presentacionTexto ;
-                object[] tempo = res[0];
-				prodResultado.id = int.Parse(tempo[0].ToString());
-				prodResultado.nombre = tempo[1].ToString();
-				prodResultado.descripcion = tempo[2].ToString();
-                prodResultado.precio = double.Parse(tempo[3].ToString());
-				prodResultado.cod_barras = tempo[4].ToString();
-				prodResultado.imagen = tempo[5].ToString();
-
-				switch (tempo[6].ToString())
-				{
-					case "XBOX":
-						presentacionTexto = Consola.XBOX;
-                        break;
-					case "PLAYSTATION":
-						presentacionTexto = Consola.PLAYSTATION;
-                        break;
-					case "WI":
-						presentacionTexto = Consola.WI;
-                        break;
-					case "NINTENDO":
-						presentacionTexto = Consola.NINTENDO;
-                        break;
-					case "PC":
-						presentacionTexto = Consola.PC;
-						break;
-					default:
-						presentacionTexto = Consola.XBOX;
-						break;
-
-				}
-				prodResultado.unidad = presentacionTexto;
-				//SI HAY OBJETO DEVOLVEMOS TODO EN EL RETURN DE LA VARIABLE DEL PRODUCTO	
-            }
-            else
-            {
-                Producto.msgError = "NO SE ENCUENTRA PRODUCTO. "+this.bd.msgError;
-				prodResultado = null; //METEMOS LA VARIABLE EN EL OBJETO CUANDO NO EXISTE. 
-            }
-			
-            return prodResultado;
+            List<object[]> res = this.bd.consulta("productos", "nombre=" + "'" + codBarras + "'"); //Devolveremos el producto para buscarlo por codigo de barra
+			return res; 
+        }
+        public List<object[]> consultarPorNombre(string nom)
+        {
+            List<object[]> res = this.bd.consulta("productos", "nombre=" + "'"+nom +"'");//Agregaremos los apostrofes en la búsqueda literal para que nos encuentre el producrto que estamos buscando por el nombre literal que se escribió
+			return res;
         }
     }
 }

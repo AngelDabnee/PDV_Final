@@ -173,33 +173,37 @@ namespace Back_CRUDs_BD
             try
             {
                 //validar conexion y abrirla
-                if(con.State == System.Data.ConnectionState.Closed)
-                    con.Open();
-                //establecer el QUERY----> SELECT * FROM tabla
-                commando = new MySqlCommand($"SELECT * FROM {tabla};");
-                commando.Connection = con;
-                //ejecutar el query
-                dr = commando.ExecuteReader();
-                //validar el resultado del query, y preparar para devolver datos
-                if (dr.HasRows)
+                if (con.State == System.Data.ConnectionState.Closed)
                 {
-                    //leemos todos los registros en un while
-                    while (dr.Read())
-                    {   
-                        //cada elemento es un arreglo de objects
-                        object[] registro = new object[dr.FieldCount];
-                        for (int i = 0; i < dr.FieldCount; i++)
+                    con.Open();
+                    //establecer el QUERY----> SELECT * FROM tabla
+                    commando = new MySqlCommand($"SELECT * FROM {tabla};");
+                    //relacionamos el comando con la conexión
+                    commando.Connection = con;
+                    //ejecutar el query
+                    dr = commando.ExecuteReader();
+                    //validar el resultado del query, y preparar para devolver datos
+                    if (dr.HasRows)
+                    {
+                        //leemos todos los registros en un while
+                        while (dr.Read())
                         {
-                            registro[i] = dr.GetValue(i);
+                            //cada elemento es un arreglo de objects
+                            object[] registro = new object[dr.FieldCount];
+                            for (int i = 0; i < dr.FieldCount; i++)
+                            {
+                                registro[i] = dr.GetValue(i);
+                            }
+                            //lo cargamos a la lista
+                            resultado.Add(registro);
                         }
-                        //lo cargamos a la lista
-                        resultado.Add(registro);
                     }
-                }
-                else {
-                    this.msgError = $"NO SE ENCONTRARON REGISTROS EXISTENTES {tabla}.";
-                    //que devolvemos??
-                    resultado = new List<object[]>(); //"chetos", "bolsa de 45gr", 34.00, "234234234324"
+                    else
+                    {
+                        this.msgError = $"NO SE ENCONTRARON REGISTROS EXISTENTES {tabla}.";
+                        //que devolvemos??
+                        resultado = new List<object[]>(); //"chetos", "bolsa de 45gr", 34.00, "234234234324"
+                    }
                 }
             }
             catch (MySqlException mex)
@@ -224,32 +228,36 @@ namespace Back_CRUDs_BD
             {
                 //validar conexion y abrirla
                 if (con.State == System.Data.ConnectionState.Closed)
+                {
                     con.Open();
-                //establecer el QUERY----> SELECT * FROM tabla
-                commando = new MySqlCommand($"SELECT * FROM {tabla} WHERE {criterioBusqueda};");
-                //ejecutar el query
-                dr = commando.ExecuteReader();
-                //validar el resultado del query, y preparar para devolver datos
-                if (dr.HasRows)
-                {
-                    //leemos todos los registros en un while
-                    while (dr.Read())
+                    //establecer el QUERY----> SELECT * FROM tabla
+                    commando = new MySqlCommand($"SELECT * FROM {tabla} WHERE {criterioBusqueda}");
+                    //relacionamos el comando con la conexión
+                    commando.Connection = con;
+                    //ejecutar el query
+                    dr = commando.ExecuteReader();
+                    //validar el resultado del query, y preparar para devolver datos
+                    if (dr.HasRows)
                     {
-                        //cada elemento es un arreglo de objects
-                        object[] registro = new object[dr.FieldCount];
-                        for (int i = 0; i < dr.FieldCount; i++)
+                        //leemos todos los registros en un while
+                        while (dr.Read())
                         {
-                            registro[i] = dr.GetValue(i);
+                            //cada elemento es un arreglo de objects
+                            object[] registro = new object[dr.FieldCount];
+                            for (int i = 0; i < dr.FieldCount; i++)
+                            {
+                                registro[i] = dr.GetValue(i);
+                            }
+                            //lo cargamos a la lista
+                            resultado.Add(registro);
                         }
-                        //lo cargamos a la lista
-                        resultado.Add(registro);
                     }
-                }
-                else
-                {
-                    this.msgError = $"ERROR AL ENCONTAR REGISTRO {tabla}.";
-                    //que devolvemos??
-                    resultado = new List<object[]>(); //"chetos", "bolsa de 45gr", 34.00, "234234234324"
+                    else
+                    {
+                        this.msgError = $"ERROR AL ENCONTAR REGISTRO {tabla}.";
+                        //que devolvemos??
+                        resultado = new List<object[]>(); //"chetos", "bolsa de 45gr", 34.00, "234234234324"
+                    }
                 }
             }
             catch (MySqlException mex)
@@ -263,7 +271,9 @@ namespace Back_CRUDs_BD
             finally
             {
                 if (con.State == System.Data.ConnectionState.Open)
+                {
                     con.Close();
+                }
             }
             return resultado;
         }

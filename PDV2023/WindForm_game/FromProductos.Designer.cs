@@ -59,7 +59,8 @@
             iconAñadir = new FontAwesome.Sharp.IconPictureBox();
             iconEditar = new FontAwesome.Sharp.IconPictureBox();
             iconBorrar = new FontAwesome.Sharp.IconPictureBox();
-            iconFoto = new FontAwesome.Sharp.IconPictureBox();
+            iconBuscar = new FontAwesome.Sharp.IconPictureBox();
+            dialogResult = new OpenFileDialog();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconImagen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImagen).BeginInit();
@@ -69,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)iconAñadir).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconEditar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconBorrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)iconFoto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconBuscar).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -130,6 +131,7 @@
             iconImagen.Size = new Size(40, 40);
             iconImagen.TabIndex = 19;
             iconImagen.TabStop = false;
+            iconImagen.Click += iconImagen_Click;
             // 
             // label1
             // 
@@ -193,6 +195,7 @@
             pictureBoxImagen.Location = new Point(275, 351);
             pictureBoxImagen.Name = "pictureBoxImagen";
             pictureBoxImagen.Size = new Size(200, 161);
+            pictureBoxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImagen.TabIndex = 11;
             pictureBoxImagen.TabStop = false;
             // 
@@ -267,22 +270,29 @@
             panelParaDataGrid.Controls.Add(dataGridProductos);
             panelParaDataGrid.Location = new Point(673, 304);
             panelParaDataGrid.Name = "panelParaDataGrid";
-            panelParaDataGrid.Size = new Size(965, 343);
+            panelParaDataGrid.Size = new Size(975, 372);
             panelParaDataGrid.TabIndex = 24;
             // 
             // dataGridProductos
             // 
             dataGridProductos.AllowUserToDeleteRows = false;
             dataGridProductos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridProductos.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridProductos.BorderStyle = BorderStyle.Fixed3D;
+            dataGridProductos.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridProductos.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            dataGridProductos.ColumnHeadersHeight = 29;
+            dataGridProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridProductos.Columns.AddRange(new DataGridViewColumn[] { id, nombre, descripcion, PRECIO, COD_BARRA, IMAGEN, UNIDAD });
+            dataGridProductos.GridColor = SystemColors.ActiveCaptionText;
             dataGridProductos.Location = new Point(3, 19);
             dataGridProductos.Name = "dataGridProductos";
             dataGridProductos.ReadOnly = true;
             dataGridProductos.RowHeadersWidth = 51;
             dataGridProductos.RowTemplate.Height = 29;
-            dataGridProductos.Size = new Size(943, 298);
+            dataGridProductos.Size = new Size(965, 339);
             dataGridProductos.TabIndex = 0;
             dataGridProductos.CellContentClick += dataGridProductos_CellContentClick;
             // 
@@ -292,7 +302,6 @@
             id.MinimumWidth = 6;
             id.Name = "id";
             id.ReadOnly = true;
-            id.Width = 125;
             // 
             // nombre
             // 
@@ -300,7 +309,6 @@
             nombre.MinimumWidth = 6;
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
-            nombre.Width = 125;
             // 
             // descripcion
             // 
@@ -308,7 +316,6 @@
             descripcion.MinimumWidth = 6;
             descripcion.Name = "descripcion";
             descripcion.ReadOnly = true;
-            descripcion.Width = 125;
             // 
             // PRECIO
             // 
@@ -316,7 +323,6 @@
             PRECIO.MinimumWidth = 6;
             PRECIO.Name = "PRECIO";
             PRECIO.ReadOnly = true;
-            PRECIO.Width = 125;
             // 
             // COD_BARRA
             // 
@@ -324,7 +330,6 @@
             COD_BARRA.MinimumWidth = 6;
             COD_BARRA.Name = "COD_BARRA";
             COD_BARRA.ReadOnly = true;
-            COD_BARRA.Width = 125;
             // 
             // IMAGEN
             // 
@@ -332,7 +337,6 @@
             IMAGEN.MinimumWidth = 6;
             IMAGEN.Name = "IMAGEN";
             IMAGEN.ReadOnly = true;
-            IMAGEN.Width = 125;
             // 
             // UNIDAD
             // 
@@ -340,7 +344,6 @@
             UNIDAD.MinimumWidth = 6;
             UNIDAD.Name = "UNIDAD";
             UNIDAD.ReadOnly = true;
-            UNIDAD.Width = 125;
             // 
             // iconCrear
             // 
@@ -406,20 +409,25 @@
             iconBorrar.TabStop = false;
             iconBorrar.Click += iconBorrar_Click;
             // 
-            // iconFoto
+            // iconBuscar
             // 
-            iconFoto.BackColor = SystemColors.Control;
-            iconFoto.BorderStyle = BorderStyle.Fixed3D;
-            iconFoto.ForeColor = SystemColors.ControlText;
-            iconFoto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            iconFoto.IconColor = SystemColors.ControlText;
-            iconFoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconFoto.IconSize = 40;
-            iconFoto.Location = new Point(1396, 124);
-            iconFoto.Name = "iconFoto";
-            iconFoto.Size = new Size(40, 40);
-            iconFoto.TabIndex = 32;
-            iconFoto.TabStop = false;
+            iconBuscar.BackColor = SystemColors.Control;
+            iconBuscar.BorderStyle = BorderStyle.Fixed3D;
+            iconBuscar.ForeColor = SystemColors.ControlText;
+            iconBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            iconBuscar.IconColor = SystemColors.ControlText;
+            iconBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconBuscar.IconSize = 40;
+            iconBuscar.Location = new Point(1396, 124);
+            iconBuscar.Name = "iconBuscar";
+            iconBuscar.Size = new Size(40, 40);
+            iconBuscar.TabIndex = 32;
+            iconBuscar.TabStop = false;
+            iconBuscar.Click += iconBuscar_Click;
+            // 
+            // dialogResult
+            // 
+            dialogResult.FileName = "openFileDialog1";
             // 
             // FromProductos
             // 
@@ -428,7 +436,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1650, 676);
-            Controls.Add(iconFoto);
+            Controls.Add(iconBuscar);
             Controls.Add(iconBorrar);
             Controls.Add(iconEditar);
             Controls.Add(iconAñadir);
@@ -451,7 +459,7 @@
             ((System.ComponentModel.ISupportInitialize)iconAñadir).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconEditar).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconBorrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)iconFoto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconBuscar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -488,6 +496,7 @@
         private FontAwesome.Sharp.IconPictureBox iconEditar;
         private FontAwesome.Sharp.IconPictureBox iconBorrar;
         private FontAwesome.Sharp.IconPictureBox iconImagen;
-        private FontAwesome.Sharp.IconPictureBox iconFoto;
+        private FontAwesome.Sharp.IconPictureBox iconBuscar;
+        private OpenFileDialog dialogResult;
     }
 }
