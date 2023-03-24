@@ -95,6 +95,7 @@
             // 
             // panel1
             // 
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(iconImagen);
