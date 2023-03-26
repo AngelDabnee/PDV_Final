@@ -26,11 +26,11 @@ namespace Middle_gamestore_PDV
             bd = new Back_CRUDs_BD.MySql("localhost", "root", "", "gamestore_pdv");//el puerto esta por default
         }
         //LLAMAMOS LOS MÉTODOS DEL CRUD. 
-        public bool crear(string nom, string apellido, string celular, string password, string email, int idEmpleado, Roles rol, string imagen)
+        public bool crearUsuario(string nom, string apellido, string celular, string password, string email, string imagen, Roles rol)
         {
             List<string> nombresCampos = new List<string>()
             {
-                    "nombre", "apellido", "celular", "password", "email", "idEmpleado", "rol", "imagen"
+                    "nombre", "apellido", "celular", "password", "email", "rol", "imagen"
             };
 
             List<ValoresAInsertar> vals = new List<ValoresAInsertar>();
@@ -39,7 +39,6 @@ namespace Middle_gamestore_PDV
             vals.Add(new ValoresAInsertar(celular));
             vals.Add(new ValoresAInsertar(password));
             vals.Add(new ValoresAInsertar(email));
-            vals.Add(new ValoresAInsertar(idEmpleado.ToString(), false));//al ser int no lleva '' en la query, por lo cual se la quitamos. 
             vals.Add(new ValoresAInsertar(rol.ToString()));
             vals.Add(new ValoresAInsertar(imagen));
 
@@ -50,7 +49,7 @@ namespace Middle_gamestore_PDV
 
             return resultado;
         }
-        public bool modificar(string nom, string apellido, string celular, string password, string email, int idEmpleado, Roles rol, string imagen, int id)
+        public bool modificarUsuario(string nom, string apellido, string celular, string password, string email, Roles rol, string imagen, int id)
         {
             List<string> nombresCampos = new List<string>()
             {
@@ -63,7 +62,6 @@ namespace Middle_gamestore_PDV
             vals.Add(new ValoresAInsertar(celular));
             vals.Add(new ValoresAInsertar(password));
             vals.Add(new ValoresAInsertar(email));
-            vals.Add(new ValoresAInsertar(idEmpleado.ToString(), false));//al ser int no lleva '' en la query, por lo cual se la quitamos. 
             vals.Add(new ValoresAInsertar(rol.ToString()));
             vals.Add(new ValoresAInsertar(imagen));
 
@@ -75,22 +73,23 @@ namespace Middle_gamestore_PDV
             return resultado;
         }
         //ELIMINAR
-        public bool borrar(int id)
+        public bool borrarUsuario(int id)
         {
             bool res = this.bd.borrar("usuarios", id);
             if (res = false)
                 Empleado.msgError = this.bd.msgError;
             return res;
         }
-        public List<object[]> consultarTodos() //DEVOLVEMOS TODOS LOS ASPECTOS. 
+        public List<object[]> consultarTodoUsers() //DEVOLVEMOS TODOS LOS ASPECTOS. usuariois
         {
             return this.bd.consulta("usuarios");
         }
         //consultar
-        public List<object[]> consultarPorNombre(string nom)
+        public List<object[]> consultarPorNombreUsuario(string nom)
         {
             List<object[]> res = this.bd.consulta("productos", "nombre=" + "'" + nom + "'");//Agregaremos los apostrofes en la búsqueda literal para que nos encuentre el producrto que estamos buscando por el nombre literal que se escribió
             return res;
         }
+
     }
 }

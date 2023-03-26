@@ -92,9 +92,11 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(236, 27);
             txtBuscar.TabIndex = 26;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // panel1
             // 
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(iconImagen);

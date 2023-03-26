@@ -111,8 +111,8 @@ namespace Middle_gamestore_PDV
 
         public List<object[]> consultarPorCodBarras(string codBarras)
         {
-            List<object[]> res = this.bd.consulta("productos", "nombre=" + "'" + codBarras + "'"); //Devolveremos el producto para buscarlo por codigo de barra
-			return res; 
+            List<object[]> res = this.bd.consulta("productos", "cod_barra=" + "'" + codBarras + "'"); //Devolveremos el producto para buscarlo por codigo de barra
+            return res;
         }
         public List<object[]> consultarPorNombre(string nom)
         {

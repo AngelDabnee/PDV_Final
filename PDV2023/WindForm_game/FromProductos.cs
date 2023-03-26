@@ -244,5 +244,10 @@ namespace WindForm_game
             }
 
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
