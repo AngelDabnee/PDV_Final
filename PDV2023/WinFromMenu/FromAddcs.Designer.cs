@@ -115,7 +115,7 @@
             // 
             buttonAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonAdd.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAdd.Location = new Point(818, 678);
+            buttonAdd.Location = new Point(818, 688);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(150, 45);
             buttonAdd.TabIndex = 22;
@@ -128,7 +128,7 @@
             buttonGuardar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonGuardar.Enabled = false;
             buttonGuardar.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonGuardar.Location = new Point(1104, 678);
+            buttonGuardar.Location = new Point(1104, 688);
             buttonGuardar.Name = "buttonGuardar";
             buttonGuardar.Size = new Size(150, 45);
             buttonGuardar.TabIndex = 21;
@@ -236,7 +236,7 @@
             buttonImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonImagen.Enabled = false;
             buttonImagen.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonImagen.Location = new Point(992, 574);
+            buttonImagen.Location = new Point(992, 584);
             buttonImagen.Name = "buttonImagen";
             buttonImagen.Size = new Size(150, 45);
             buttonImagen.TabIndex = 19;
@@ -310,7 +310,7 @@
             pictureBoxImagen.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxImagen.BorderStyle = BorderStyle.Fixed3D;
             pictureBoxImagen.Enabled = false;
-            pictureBoxImagen.Location = new Point(973, 407);
+            pictureBoxImagen.Location = new Point(973, 417);
             pictureBoxImagen.Name = "pictureBoxImagen";
             pictureBoxImagen.Size = new Size(200, 161);
             pictureBoxImagen.SizeMode = PictureBoxSizeMode.StretchImage;

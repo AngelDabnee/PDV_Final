@@ -92,6 +92,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(236, 27);
             txtBuscar.TabIndex = 26;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // panel1
             // 

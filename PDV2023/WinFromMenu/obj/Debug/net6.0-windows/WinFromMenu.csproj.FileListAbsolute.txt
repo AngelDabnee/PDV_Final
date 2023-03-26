@@ -40,5 +40,10 @@ C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\bi
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\bin\Debug\net6.0-windows\Middle_gamestore_PDV.pdb
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\bin\Debug\net6.0-windows\Back_CRUDs_BD.pdb
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.csproj.CopyComplete
-C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromDelet.resources
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromUpdate.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromBuscar.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromAddUsers.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromDelete.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromDeleteUsers.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromUpdateUsers.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromBuscarUsuarios.resources

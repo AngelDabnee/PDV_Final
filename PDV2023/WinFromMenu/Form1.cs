@@ -16,20 +16,47 @@ namespace WinFromMenu
         {
             InitializeComponent();
         }
+        private void buttonSubMenu_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelDebajo);
+        }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             openHijoFrom(new FromAddcs());
         }
         private void buttonDelet_Click(object sender, EventArgs e)
         {
-            openHijoFrom((new FromDelet()));
+            openHijoFrom((new FromDelete()));
         }
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             openHijoFrom((new FromUpdate()));
         }
-
-
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            openHijoFrom(new FromBuscar());
+        }
+        //-------------------------IMPLEMENTAMOS LOS BOTONES PARA LOS USUARIOS-------------------------------------------
+        private void btnSubMenuUser_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelSubUser);
+        }
+        private void btnAddUsers_Click(object sender, EventArgs e)
+        {
+            openHijoFrom(new FromAddUsers());
+        }
+        private void btnUpdateUsers_Click(object sender, EventArgs e)
+        {
+            openHijoFrom(new FromUpdateUsers());
+        }
+        private void btnDeleteUsers_Click(object sender, EventArgs e)
+        {
+            openHijoFrom(new FromDeleteUsers());
+        }
+        private void btnBuscarUsers_Click(object sender, EventArgs e)
+        {
+            openHijoFrom(new FromBuscarUsuarios());
+        }
 
         #region
         //----------------------------------Definiremos métodos para mostrar diversos formularios.------------------
@@ -46,7 +73,7 @@ namespace WinFromMenu
         }
         private void mostrarFromDelete()
         {
-            Form form = new FromDelet();
+            Form form = new FromDelete();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;//quitamos los botones de cerrar, minimizar
             form.Dock = DockStyle.Fill;
@@ -54,7 +81,7 @@ namespace WinFromMenu
             panelForm.Tag = form;
             form.Show();
         }
-        private void mostrarFromUpdate() 
+        private void mostrarFromUpdate()
         {
             Form form = new FromUpdate();
             form.TopLevel = false;
@@ -67,7 +94,7 @@ namespace WinFromMenu
         #endregion
         //-----------metodo para abrir un unico formulario. 
         private Form activeForm = null;
-        private void openHijoFrom(Form form) 
+        private void openHijoFrom(Form form)
         {
             if (activeForm != null)
             {
@@ -81,9 +108,34 @@ namespace WinFromMenu
             panelForm.Tag = form;
             form.Show();
         }
+        //------------------------------Método para ocultar y mostrar los submenu
+        private void customizeDesing()
+        {
+            panelDebajo.Visible = false;
+        }
+        //----------------------------metodo para enseñar
+        private void hideSubMenu()
+        {
+            if (panelDebajo.Visible == true)
+            {
+                panelDebajo.Visible = false;
+            }
+        }
+        //------------------------método para desplegar y no desplegar el menú. 
+        private void showSubMenu(Panel submenu1)
+        {
+            if (submenu1.Visible == false)
+            {
+                hideSubMenu();
+                submenu1.Visible = true;
+            }
+            else
+            {
+                submenu1.Visible = false;
+
+            }
+        }
 
         #endregion
-
-
     }
 }

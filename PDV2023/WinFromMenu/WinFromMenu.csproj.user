@@ -7,10 +7,25 @@
     <Compile Update="FromAddcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromDelet.cs">
+    <Compile Update="FromAddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FromBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FromBuscarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FromDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FromDeleteUsers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FromUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FromUpdateUsers.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
