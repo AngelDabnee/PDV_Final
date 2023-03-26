@@ -4,28 +4,28 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromAddcs.cs">
+    <Compile Update="FromProductos\FromAddcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromAddUsers.cs">
+    <Compile Update="FROMUSUARIOS\FromAddUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromBuscar.cs">
+    <Compile Update="FromProductos\FromBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromBuscarUsuarios.cs">
+    <Compile Update="FROMUSUARIOS\FromBuscarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromDelete.cs">
+    <Compile Update="FromProductos\FromDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromDeleteUsers.cs">
+    <Compile Update="FROMUSUARIOS\FromDeleteUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromUpdate.cs">
+    <Compile Update="FromProductos\FromUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FromUpdateUsers.cs">
+    <Compile Update="FROMUSUARIOS\FromUpdateUsers.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

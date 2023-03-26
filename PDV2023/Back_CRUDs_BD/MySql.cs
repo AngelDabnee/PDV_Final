@@ -102,7 +102,7 @@ namespace Back_CRUDs_BD
                 }
                 camposConcat = camposConcat.Remove(camposConcat.Length - 1);//quitamos la ultima coma
                 //damos la query
-                commando = new MySqlCommand($"UPDATE {tabla} SET {camposConcat} WHERE id={id};");
+                commando = new MySqlCommand($"UPDATE {tabla} SET {camposConcat} WHERE idEmpleado={id};");
                 //asociar la conexion al command
                 commando.Connection = con;
                 //ejecutar el command
@@ -137,7 +137,7 @@ namespace Back_CRUDs_BD
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
                 //Definimos el comando. 
-                commando = new MySqlCommand($"DELETE FROM {tabla} WHERE id={id};");
+                commando = new MySqlCommand($"DELETE FROM {tabla} WHERE idEmpleado={id};");
                 //Relacionamos el comando con la conexión
                 commando.Connection = con;
                 int res = commando.ExecuteNonQuery();
