@@ -361,7 +361,7 @@
             comboConsola.Size = new Size(821, 28);
             comboConsola.TabIndex = 9;
             // 
-            // FromDelet
+            // FromDelete
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -373,7 +373,7 @@
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
-            Name = "FromDelet";
+            Name = "FromDelete";
             Text = "FromDelet";
             WindowState = FormWindowState.Maximized;
             Load += FromDelet_Load;

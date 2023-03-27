@@ -57,6 +57,11 @@ namespace WinFromMenu
         {
             openHijoFrom(new FromBuscarUsuarios());
         }
+        //----------------------------LLAMAREMOS CAJA
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+            openHijoFrom(new FromCajaCobro());
+        }
 
         #region
         //----------------------------------Definiremos métodos para mostrar diversos formularios.------------------
@@ -137,5 +142,6 @@ namespace WinFromMenu
         }
 
         #endregion
+
     }
 }
