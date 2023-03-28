@@ -40,8 +40,8 @@
             btnCancel = new Button();
             btnCobrar = new Button();
             panel1 = new Panel();
+            txtCambio1 = new TextBox();
             btnCambio = new Button();
-            txtCambio = new TextBox();
             iconcambi = new TextBox();
             label6 = new Label();
             iconoprecio = new TextBox();
@@ -113,6 +113,7 @@
             pictureBoxClose.Size = new Size(40, 40);
             pictureBoxClose.TabIndex = 0;
             pictureBoxClose.TabStop = false;
+            pictureBoxClose.Click += pictureBoxClose_Click;
             // 
             // btnBuscarPorCodBarra
             // 
@@ -180,6 +181,7 @@
             // 
             // btnCobrar
             // 
+            btnCobrar.Enabled = false;
             btnCobrar.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnCobrar.Location = new Point(203, 680);
             btnCobrar.Name = "btnCobrar";
@@ -192,8 +194,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(txtCambio1);
             panel1.Controls.Add(btnCambio);
-            panel1.Controls.Add(txtCambio);
             panel1.Controls.Add(iconcambi);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(iconoprecio);
@@ -211,6 +213,16 @@
             panel1.Size = new Size(359, 653);
             panel1.TabIndex = 2;
             // 
+            // txtCambio1
+            // 
+            txtCambio1.BackColor = Color.Gray;
+            txtCambio1.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            txtCambio1.ForeColor = SystemColors.Window;
+            txtCambio1.Location = new Point(68, 448);
+            txtCambio1.Name = "txtCambio1";
+            txtCambio1.Size = new Size(155, 46);
+            txtCambio1.TabIndex = 11;
+            // 
             // btnCambio
             // 
             btnCambio.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -221,17 +233,6 @@
             btnCambio.Text = "COBRAR";
             btnCambio.UseVisualStyleBackColor = true;
             btnCambio.Click += btnCambio_Click;
-            // 
-            // txtCambio
-            // 
-            txtCambio.BackColor = Color.Gray;
-            txtCambio.Enabled = false;
-            txtCambio.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtCambio.ForeColor = SystemColors.Window;
-            txtCambio.Location = new Point(68, 448);
-            txtCambio.Name = "txtCambio";
-            txtCambio.Size = new Size(155, 46);
-            txtCambio.TabIndex = 13;
             // 
             // iconcambi
             // 
@@ -509,7 +510,6 @@
         private Label label4;
         private Button btnCancel;
         private Button btnCobrar;
-        private TextBox txtCambio;
         private TextBox iconcambi;
         private Label label6;
         private Panel panelNomCaja;
@@ -529,5 +529,6 @@
         private Button btnCambio;
         private Panel panel2;
         private FontAwesome.Sharp.IconPictureBox pictureBoxClose;
+        private TextBox txtCambio1;
     }
 }

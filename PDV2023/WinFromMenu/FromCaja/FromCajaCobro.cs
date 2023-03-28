@@ -12,18 +12,20 @@ namespace WinFromMenu
     public partial class FromCajaCobro : Form
     {
         CRUDs_BD bd;//para utilizar la conexión a la bd
-        Producto prod;
+        Producto prodAVender;
+        Venta venta;
         public FromCajaCobro()
         {
             InitializeComponent();
-            prod = new Producto();
+            prodAVender = new Producto();
+            venta = new Venta();
             bd = new Back_CRUDs_BD.MySql("localhost", "root", "", "gamestore_pdv", "3306");
 
         }
         //--------------------------GENERAMOS LA BUSQUEDA Y EL REGISTRO DE LOS PRODUCTOS POR CADA "PIP" QUE HAGAMOS AL CÓDIGO DE BARRA A LA HORA DE COBRAR
         private void btnBuscarPorCodBarra_Click(object sender, EventArgs e)
         {
-            Producto res = prod.consultarPorCodBarras('"' + txtPorCodBarra.Text + '"');
+            Producto res = prodAVender.consultarPorCodBarras('"' + txtPorCodBarra.Text + '"');
             if (res == null)
             {
                 MessageBox.Show("PRODUCTO NO EXISTENTE" + Producto.msgError);
@@ -49,40 +51,57 @@ namespace WinFromMenu
                 txtTotal.Text = subtotal.ToString();//---GENERAMOS EL TOTAL DE LOS PRODUCTOS. (RECORDAR QUE EL TOTAL YA ESTA REGISTRADO EN LA BASE DE DATOS). 
             }
         }
-        //----------------------CREAMOS EL MÉTODO PARA PODER CALCULAR EL CAMBIO DE LOS PRODUCTOS QUE SE REGISTREN PARA LA VENTA-----
-        private void btnCambio_Click(object sender, EventArgs e)
-        {
-            double total = double.Parse(txtTotal.Text);//CREAMOS UNA VARIABLE TOTAL PARA QUE ESTA TOME EL VALOR DE LO QUE SE ENCUENTRA EN TXTTOTAL
-            double cantidadRecibida = double.Parse(txtCantidadRecibida.Text);//CREAMOS UNA VARIABLE PARA LA CANTIDAD RECIBIDA QUE RECIBAMOS DEL CLIENTE
-            double cambio = 0;//GENERAMOS LA VARIABLE CAMBIO QUE UTILIZAREMOS CADA VEZ QUE CREEMOS UNA NUEVA COMPRA
-            double res = (cantidadRecibida - total);//----REALIZAMOS LAS OPERACIONES PARA LA COMPRA. EN ESTE CASO GENERAMOS EL CAMBIO QUE DEBEMOS ENTREGARLE AL USUARIO. 
-            txtCambio.Text = res.ToString();//le damos el cambio o saldra negativa si le hace falta dinero. 
-        }
-        //----------CREAREMOS EL EVENTO PARA PODER GENERAR EL PAGO. 
+        //----------CREAREMOS EL BOTÓN PARA GENERAR EL CAMBIO DEL CLIENTE. 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            double res = double.Parse(txtCambio.Text.ToString());
-            if (res == 0)
+            //preparamos las vars para registra la venta
+            List<ProductoAVender> prodsAVender = new List<ProductoAVender>();
+            for (int i = 0; i < dataGridViewProdVent.Rows.Count - 1; i++)//ESTE FOR SIGNIFICA QUE RECORRREREMOS LOS RENGLONES Y CONTAREMOS LOS RENGLONES PARA SUMAR SEGÚN EL ID Y LA CANTIDAD
             {
-                MessageBox.Show("GRACIAS POR SU COMPRA");
-                this.limpiarProd();
+
+                //agregar un ProductoAVender a la lista
+                ProductoAVender prodVender = new ProductoAVender(int.Parse(dataGridViewProdVent.Rows[i].Cells[0].Value.ToString()), int.Parse(dataGridViewProdVent.Rows[i].Cells[3].Value.ToString()));
+                prodsAVender.Add(prodVender);//AGREGAMOS LOS VALORES QUE OBTUVIMOS PARA AÑADIRLOS A LA VARIABLE DE VENTA DE PRODUCTOS
+
+            }
+
+            double cambio = venta.registrarVenta(1, double.Parse(txtTotal.Text), double.Parse(txtCantidadRecibida.Text), prodsAVender);//RECUERDA MODIFICAR EL ID DEL EMPLEADO EN ESTE CASO MANEJAREMOS EL 1 PARA EL EJEMPLO
+            //si hay error
+            if (cambio == -1)
+            {
+                MessageBox.Show("ERROR AL REGISTRAR LA VENTA" + Venta.msgError);
             }
             else
             {
-                MessageBox.Show("QUEDA PENDIENTE " + res);
+                double numRedon = Math.Round(cambio, 2);//CON ESTO REDONDEAMOS. 
+                MessageBox.Show($"VENTA REGISTRADA CON ÉXITO");
+                MessageBox.Show($"SU CAMBIO ES {numRedon}");
+                this.limpiarProd();
             }
         }
+        private void btnCambio_Click(object sender, EventArgs e)
+        {
+            if (double.Parse(txtCantidadRecibida.Text) >= double.Parse(txtTotal.Text))
+            {
+                btnCobrar.Enabled = true;
+                double total = double.Parse(txtTotal.Text);//CREAMOS UNA VARIABLE TOTAL PARA QUE ESTA TOME EL VALOR DE LO QUE SE ENCUENTRA EN TXTTOTAL
+                double cantidadRecibida = double.Parse(txtCantidadRecibida.Text);//CREAMOS UNA VARIABLE PARA LA CANTIDAD RECIBIDA QUE RECIBAMOS DEL CLIENTE
+                double cambio = 0;//GENERAMOS LA VARIABLE CAMBIO QUE UTILIZAREMOS CADA VEZ QUE CREEMOS UNA NUEVA COMPRA
+                double res = (cantidadRecibida - total);//----REALIZAMOS LAS OPERACIONES PARA LA COMPRA. EN ESTE CASO GENERAMOS EL CAMBIO QUE DEBEMOS ENTREGARLE AL USUARIO. 
+                txtCambio1.Text = res.ToString();//le damos el cambio o saldra negativa si le hace falta dinero. 
 
-        //ELIMINAMOS TODO AL MOMENTO DE CANCELAR
+            }
+        }
+        //ELIMINAMOS TODO AL MOMENTO DE CANCELAR, PERO SOLO EL RENGLON Y RECARGAMOS LOS DATOS. 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             dataGridViewProdVent.Rows.RemoveAt(this.dataGridViewProdVent.CurrentRow.Index);//Con esto eliminaremos el renglon seleccionado. 
             this.recargar();
         }
-        //----crearemos un metodo para limpiar a la hora de pagar. 
+        //-------------------------------------------crearemos un metodo para limpiar a la hora de pagar. 
         private void limpiarProd()
         {
-            txtCambio.Clear();
+            txtCambio1.Clear();
             txtCantidadRecibida.Clear();
             txtPorCodBarra.Clear();
             txtTotal.Clear();
@@ -101,6 +120,10 @@ namespace WinFromMenu
             }
             txtSubTotal.Text = (subtotal / 0.16).ToString();//AQUÍ CALCULAMOS EL IVA TOTAL DE LOS PRODUCTOS Y SE LO ASIGNAMOS A NUESTRO TXT SUBTOTAL
             txtTotal.Text = subtotal.ToString();//---GENERAMOS EL TOTAL DE LOS PRODUCTOS. (RECORDAR QUE EL TOTAL YA ESTA REGISTRADO EN LA BASE DE DATOS). 
+        }
+        private void pictureBoxClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
