@@ -14,12 +14,16 @@ namespace WinFromMenu
         CRUDs_BD bd;//para utilizar la conexión a la bd
         Producto prodAVender;
         Venta venta;
+        Logear idlog;
+
+
         public FromCajaCobro()
         {
             InitializeComponent();
             prodAVender = new Producto();
             venta = new Venta();
             bd = new Back_CRUDs_BD.MySql("localhost", "root", "", "gamestore_pdv", "3306");
+            idlog = new Logear();
 
         }
         //--------------------------GENERAMOS LA BUSQUEDA Y EL REGISTRO DE LOS PRODUCTOS POR CADA "PIP" QUE HAGAMOS AL CÓDIGO DE BARRA A LA HORA DE COBRAR
@@ -64,8 +68,8 @@ namespace WinFromMenu
                 prodsAVender.Add(prodVender);//AGREGAMOS LOS VALORES QUE OBTUVIMOS PARA AÑADIRLOS A LA VARIABLE DE VENTA DE PRODUCTOS
 
             }
-
-            double cambio = venta.registrarVenta(1, double.Parse(txtTotal.Text), double.Parse(txtCantidadRecibida.Text), prodsAVender);//RECUERDA MODIFICAR EL ID DEL EMPLEADO EN ESTE CASO MANEJAREMOS EL 1 PARA EL EJEMPLO
+            //cambio
+            double cambio = venta.registrarVenta(Logear.id, double.Parse(txtTotal.Text), double.Parse(txtCantidadRecibida.Text), prodsAVender);//RECUERDA MODIFICAR EL ID DEL EMPLEADO EN ESTE CASO MANEJAREMOS EL 1 PARA EL EJEMPLO
             //si hay error
             if (cambio == -1)
             {
