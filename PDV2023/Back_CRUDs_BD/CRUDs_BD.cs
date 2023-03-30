@@ -40,6 +40,8 @@ public abstract class CRUDs_BD
     public abstract bool borrar(string tabla, int id);
     public abstract List<object[]> consulta(string tabla);
     public abstract List<object[]> consulta(string tabla, string criterioBusqueda);
+    public abstract object consultaUnValor(string campo, string tabla, string criterioBusqueda);
+    public abstract object consultaUsuario(string campo, string tabla, string criterioBusqueda);
 
 }
 

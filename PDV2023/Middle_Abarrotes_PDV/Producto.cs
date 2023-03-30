@@ -109,10 +109,55 @@ namespace Middle_gamestore_PDV
 			return precio;
 		}
 
-        public List<object[]> consultarPorCodBarras(string codBarras)
+        public Producto consultarPorCodBarras(string codBarras)
         {
-            List<object[]> res = this.bd.consulta("productos", "cod_barra=" + "'" + codBarras + "'"); //Devolveremos el producto para buscarlo por codigo de barra
-            return res;
+            Producto prodResultado = new Producto();
+
+            List<object[]> res = this.bd.consulta("productos", "cod_barra=" + codBarras);
+            //validamos que traig un elemento la lista
+            if (res.Count == 1)
+            {
+				Consola presentacionTexto;
+                object[] tempo = res[0];
+                prodResultado.id = int.Parse(tempo[0].ToString());
+                prodResultado.nombre = tempo[1].ToString();
+                prodResultado.descripcion = tempo[2].ToString();
+                prodResultado.precio = double.Parse(tempo[3].ToString());
+                prodResultado.cod_barras = tempo[4].ToString();
+                prodResultado.imagen = tempo[5].ToString();
+
+                switch (tempo[6].ToString())
+                {
+                    case "XBOX":
+                        presentacionTexto = Consola.XBOX;
+                        break;
+                    case "PLAYSTATION":
+                        presentacionTexto = Consola.PLAYSTATION;
+                        break;
+                    case "WI":
+                        presentacionTexto = Consola.WI;
+                        break;
+                    case "NINTENDO":
+                        presentacionTexto = Consola.NINTENDO;
+                        break;
+					case "PC":
+						presentacionTexto = Consola.PC;
+						break;
+                    default:
+                        presentacionTexto = Consola.XBOX;
+                        break;
+
+                }
+                prodResultado.unidad = presentacionTexto;
+
+            }
+            else
+            {
+                Producto.msgError = "Código de barras no existe en catalogo de productos. " + this.bd.msgError;
+                prodResultado = null;
+            }
+
+            return prodResultado;
         }
         public List<object[]> consultarPorNombre(string nom)
         {

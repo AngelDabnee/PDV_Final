@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            btnCaja = new Button();
             btnSubMenuUser = new Button();
             panelSubUser = new Panel();
             btnBuscarUsers = new Button();
@@ -52,6 +53,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(btnCaja);
             panel1.Controls.Add(btnSubMenuUser);
             panel1.Controls.Add(panelSubUser);
             panel1.Controls.Add(panelDebajo);
@@ -60,8 +62,19 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 760);
+            panel1.Size = new Size(250, 851);
             panel1.TabIndex = 0;
+            // 
+            // btnCaja
+            // 
+            btnCaja.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCaja.Location = new Point(3, 758);
+            btnCaja.Name = "btnCaja";
+            btnCaja.Size = new Size(244, 81);
+            btnCaja.TabIndex = 2;
+            btnCaja.Text = "CAJA";
+            btnCaja.UseVisualStyleBackColor = true;
+            btnCaja.Click += btnCaja_Click;
             // 
             // btnSubMenuUser
             // 
@@ -222,7 +235,7 @@
             panelForm.Dock = DockStyle.Fill;
             panelForm.Location = new Point(250, 0);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(908, 760);
+            panelForm.Size = new Size(908, 851);
             panelForm.TabIndex = 1;
             // 
             // Form1
@@ -231,7 +244,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1158, 760);
+            ClientSize = new Size(1158, 851);
             Controls.Add(panelForm);
             Controls.Add(panel1);
             DoubleBuffered = true;
@@ -261,5 +274,6 @@
         private Button btnUpdateUsers;
         private Button btnDeleteUsers;
         private Button btnAddUsers;
+        private Button btnCaja;
     }
 }

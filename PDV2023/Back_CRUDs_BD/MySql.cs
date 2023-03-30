@@ -102,7 +102,7 @@ namespace Back_CRUDs_BD
                 }
                 camposConcat = camposConcat.Remove(camposConcat.Length - 1);//quitamos la ultima coma
                 //damos la query
-                commando = new MySqlCommand($"UPDATE {tabla} SET {camposConcat} WHERE id={id};");
+                commando = new MySqlCommand($"UPDATE {tabla} SET {camposConcat} WHERE idEmpleado={id};");
                 //asociar la conexion al command
                 commando.Connection = con;
                 //ejecutar el command
@@ -137,7 +137,7 @@ namespace Back_CRUDs_BD
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
                 //Definimos el comando. 
-                commando = new MySqlCommand($"DELETE FROM {tabla} WHERE id={id};");
+                commando = new MySqlCommand($"DELETE FROM {tabla} WHERE idEmpleado={id};");
                 //Relacionamos el comando con la conexión
                 commando.Connection = con;
                 int res = commando.ExecuteNonQuery();
@@ -267,6 +267,99 @@ namespace Back_CRUDs_BD
             catch (Exception ex)
             {
                 this.msgError = "ERROR DE WINDWOS " + ex.Message;
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return resultado;
+        }
+        //Crearemos un método para consultar un solo valor en la tabla y devolver el campo de la última id. 
+        public override object consultaUnValor(string campo, string tabla, string criterioBusqueda)
+        {
+            object resultado = new object();
+            int resCorrecto = 0;
+            try
+            {
+                //validar conexion y abrirla
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                    //establecer el QUERY----> SELECT * FROM tabla
+                    commando = new MySqlCommand($"SELECT {campo} FROM {tabla} WHERE {criterioBusqueda}");
+                    //relacionamos el comando con la conexión
+                    commando.Connection = con;
+                    //ejecutar el query
+                    resultado = commando.ExecuteScalar();//devolvemos un solo valor. 
+                    if (resultado != null)//al ejecutarse correctamente la query mandaremos el dato. 
+                    {
+                        resultado = 1;
+                    }
+                    else
+                    {
+                        this.msgError = $"NO EXISTEN REGISTROS EN LA TABLA {tabla}";
+                        resultado = null; //SIEMPRE QUE CREEMOS ALGO, DEVOLVEMOS UN NULO CUANDO EL RESULTADO DE LA CONSULTA ES ERROENA. 
+                    }
+                }
+
+            }
+
+            catch (MySqlException mes)
+            {
+                this.msgError = $"NO SE PUDO REALIZAR LA CONSULTA A LA BAE DE DATOS {mes.Message}";
+            }
+            catch (Exception ex) 
+            {
+                this.msgError = $"ERROR GENERAL DE WINDOWS {ex.Message}"; 
+            }
+            finally 
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return resultado;
+        }
+        public override object consultaUsuario(string campo, string tabla, string criterioBusqueda)
+        {
+            object resultado = new object();
+            int resCorrecto = 0;
+            try
+            {
+                //validar conexion y abrirla
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                    //establecer el QUERY----> SELECT * FROM tabla
+                    commando = new MySqlCommand($"SELECT {campo} FROM {tabla} WHERE {criterioBusqueda} AND {criterioBusqueda}");
+                    //relacionamos el comando con la conexión
+                    commando.Connection = con;
+                    //ejecutar el query
+                    resultado = commando.ExecuteScalar();//devolvemos un solo valor. 
+                    if (resultado != null)//al ejecutarse correctamente la query mandaremos el dato. 
+                    {
+                        resultado = 1;
+                    }
+                    else
+                    {
+                        this.msgError = $"NO EXISTEN REGISTROS EN LA TABLA {tabla}";
+                        resultado = null; //SIEMPRE QUE CREEMOS ALGO, DEVOLVEMOS UN NULO CUANDO EL RESULTADO DE LA CONSULTA ES ERROENA. 
+                    }
+                }
+
+            }
+
+            catch (MySqlException mes)
+            {
+                this.msgError = $"USUARIO NO REGISTRADO {mes.Message}";
+            }
+            catch (Exception ex)
+            {
+                this.msgError = $"ERROR GENERAL DE WINDOWS {ex.Message}";
             }
             finally
             {

@@ -53,7 +53,7 @@ namespace Middle_gamestore_PDV
         {
             List<string> nombresCampos = new List<string>()
             {
-                    "nombre", "apellido", "celular", "password", "email", "idEmpleado", "rol", "imagen"
+                    "nombre", "apellido", "celular", "password", "email", "rol", "imagen"
             };
 
             List<ValoresAInsertar> vals = new List<ValoresAInsertar>();
@@ -65,7 +65,7 @@ namespace Middle_gamestore_PDV
             vals.Add(new ValoresAInsertar(rol.ToString()));
             vals.Add(new ValoresAInsertar(imagen));
 
-            bool resultado = this.bd.insertar("usuarios", nombresCampos, vals);
+            bool resultado = this.bd.modificar("usuarios", nombresCampos, vals, id);
             //valir el res
             if (resultado == false)
                 Empleado.msgError = this.bd.msgError;
@@ -87,7 +87,7 @@ namespace Middle_gamestore_PDV
         //consultar
         public List<object[]> consultarPorNombreUsuario(string nom)
         {
-            List<object[]> res = this.bd.consulta("productos", "nombre=" + "'" + nom + "'");//Agregaremos los apostrofes en la búsqueda literal para que nos encuentre el producrto que estamos buscando por el nombre literal que se escribió
+            List<object[]> res = this.bd.consulta("usuarios", "nombre=" + "'" + nom + "'");//Agregaremos los apostrofes en la búsqueda literal para que nos encuentre el producrto que estamos buscando por el nombre literal que se escribió
             return res;
         }
 
