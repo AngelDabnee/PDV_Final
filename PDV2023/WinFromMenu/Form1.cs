@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Middle_gamestore_PDV;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ namespace WinFromMenu
 {
     public partial class Form1 : Form
     {
+        public static Empleado sesion;
+        //variable de sesion
         public Form1()
         {
             InitializeComponent();
         }
+        //FORM PARA ABRIR. 
         private void buttonSubMenu_Click(object sender, EventArgs e)
         {
             showSubMenu(panelDebajo);
@@ -143,5 +147,26 @@ namespace WinFromMenu
 
         #endregion
 
+        private void panelForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //mostrsr el login
+            Login login = new Login();
+            login.ShowDialog();
+            //AQUI!!!
+            if (Form1.sesion.rol == Roles.USUARIO)
+            {
+                this.Hide();
+                FromCajaCobro caja = new FromCajaCobro();
+                caja.ShowDialog();
+                Login loginForm = new Login();
+                login.ShowDialog();
+                this.Show();
+            }
+        }
     }
 }

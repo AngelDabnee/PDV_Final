@@ -163,6 +163,7 @@
             Controls.Add(panelFondoLogin);
             DoubleBuffered = true;
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             panelFondoLogin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).EndInit();

@@ -237,6 +237,7 @@
             panelForm.Name = "panelForm";
             panelForm.Size = new Size(908, 851);
             panelForm.TabIndex = 1;
+            panelForm.Paint += panelForm_Paint;
             // 
             // Form1
             // 
@@ -251,6 +252,7 @@
             Name = "Form1";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panelSubUser.ResumeLayout(false);
             panelDebajo.ResumeLayout(false);

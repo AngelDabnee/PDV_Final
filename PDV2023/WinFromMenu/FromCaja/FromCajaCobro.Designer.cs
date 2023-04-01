@@ -189,6 +189,7 @@
             btnCobrar.TabIndex = 3;
             btnCobrar.Text = "PAGAR";
             btnCobrar.UseVisualStyleBackColor = true;
+            btnCobrar.Visible = false;
             btnCobrar.Click += btnCobrar_Click;
             // 
             // panel1

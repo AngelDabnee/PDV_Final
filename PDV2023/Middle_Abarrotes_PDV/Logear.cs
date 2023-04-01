@@ -33,14 +33,14 @@ namespace Middle_gamestore_PDV
                 prodResultado.idEmpleado = int.Parse(tempo[0].ToString());
                 prodResultado.nombre = tempo[1].ToString();
                 prodResultado.password = tempo[4].ToString();
-                id = idEmpleado; 
+                id = idEmpleado;
             }
             else
             {
                 Producto.msgError = "ERROR, EL USUARIO NO EXISTE " + this.bd.msgError;
                 prodResultado = null;
             }
-            return prodResultado; 
-        } 
+            return prodResultado;
+        }
     }
 }

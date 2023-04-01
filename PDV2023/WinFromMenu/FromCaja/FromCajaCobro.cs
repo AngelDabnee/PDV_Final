@@ -69,7 +69,7 @@ namespace WinFromMenu
 
             }
             //cambio
-            double cambio = venta.registrarVenta(Logear.id, double.Parse(txtTotal.Text), double.Parse(txtCantidadRecibida.Text), prodsAVender);//RECUERDA MODIFICAR EL ID DEL EMPLEADO EN ESTE CASO MANEJAREMOS EL 1 PARA EL EJEMPLO
+            double cambio = venta.registrarVenta(Form1.sesion.id, double.Parse(txtTotal.Text), double.Parse(txtCantidadRecibida.Text), prodsAVender);//RECUERDA MODIFICAR EL ID DEL EMPLEADO EN ESTE CASO MANEJAREMOS EL 1 PARA EL EJEMPLO
             //si hay error
             if (cambio == -1)
             {
@@ -94,6 +94,12 @@ namespace WinFromMenu
                 double res = (cantidadRecibida - total);//----REALIZAMOS LAS OPERACIONES PARA LA COMPRA. EN ESTE CASO GENERAMOS EL CAMBIO QUE DEBEMOS ENTREGARLE AL USUARIO. 
                 txtCambio1.Text = res.ToString();//le damos el cambio o saldra negativa si le hace falta dinero. 
 
+                //se armó
+                this.btnCobrar_Click(btnCobrar, e);
+            }
+            else
+            {
+                MessageBox.Show("Dinero insuficiente", "Te faltan " + (double.Parse(txtCantidadRecibida.Text) - double.Parse(txtTotal.Text)) + ", para completar el total");
             }
         }
         //ELIMINAMOS TODO AL MOMENTO DE CANCELAR, PERO SOLO EL RENGLON Y RECARGAMOS LOS DATOS. 

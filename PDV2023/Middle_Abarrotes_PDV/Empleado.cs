@@ -10,12 +10,13 @@ namespace Middle_gamestore_PDV
     public class Empleado
     {
         //Definimos las variables. 
+        public int id;
         public string nombre;
         public string apellido;
         public string celular;
         public string password;
         public string email;
-        public int idEmpleado; //la utilizaremos para la id del empleado. 
+        //public static int idEmpleado; //la utilizaremos para la id del empleado. 
         public Roles rol;
         public string imagen;
         CRUDs_BD bd;
@@ -89,6 +90,44 @@ namespace Middle_gamestore_PDV
         {
             List<object[]> res = this.bd.consulta("usuarios", "nombre=" + "'" + nom + "'");//Agregaremos los apostrofes en la búsqueda literal para que nos encuentre el producrto que estamos buscando por el nombre literal que se escribió
             return res;
+        }
+
+        public Empleado login(string nombre, string password)
+        {
+            Empleado prodResultado = new Empleado();
+
+            List<object[]> res = this.bd.consulta("usuarios", " nombre='" + nombre + "' AND password = '" + password+"'");
+            //validamos que traig un elemento la lista
+            if (res.Count == 1)
+            {
+                object[] tempo = res[0];
+                Roles roles = new Roles();
+                switch (tempo[6].ToString()) {
+                    case "ADMIN":
+                        roles = Roles.ADMIN; break;
+                    case "USUARIO":
+                        roles = Roles.USUARIO; break;
+                    default:
+                        roles = Roles.USUARIO;
+                        break;
+                   }
+               
+                prodResultado.id = int.Parse(tempo[0].ToString());
+                prodResultado.nombre = tempo[1].ToString();
+                prodResultado.apellido = tempo[2].ToString();
+                prodResultado.celular = tempo[3].ToString();
+
+                prodResultado.password = tempo[4].ToString();
+                prodResultado.email = tempo[5].ToString();
+                prodResultado.rol = roles;
+                prodResultado.imagen = tempo[7].ToString();
+            }
+            else
+            {
+                Producto.msgError = "ERROR, EL USUARIO NO EXISTE " + this.bd.msgError;
+                prodResultado = null;
+            }
+            return prodResultado;
         }
 
     }
