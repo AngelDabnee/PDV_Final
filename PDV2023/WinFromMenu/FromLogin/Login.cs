@@ -16,8 +16,9 @@ namespace WinFromMenu
     public partial class Login : Form
     {
         CRUDs_BD bd;
-        Logear log = new Logear();
-        Logear logear = new Logear();
+        //Logear log = new Logear();
+        //Logear logear = new Logear();
+        Empleado sesion = new Empleado();
 
         public Login()
         {
@@ -27,19 +28,17 @@ namespace WinFromMenu
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            Logear logear = log.consulta("'" + txtUsuario.Text + "'", "'" + txtPassword.Text + "'");
+            sesion = sesion.login(txtEmail.Text, txtPassword.Text);
             try
             {
-                if (logear == null)
+                if (sesion == null)
                 {
-                    MessageBox.Show("USUARIO Y/O CONTRASEÑA NO COINCIDEN" + Logear.msgError);
+                    MessageBox.Show("USUARIO Y/O CONTRASEÑA NO COINCIDEN" + Empleado.msgError);
                 }
                 else
                 {
-                    Form fromMenu = new Form1();
-                    fromMenu.ShowDialog();
-                    this.Close(); //para solo tener una instancia del formulario
-
+                    Form1.sesion = this.sesion;
+                    this.Hide();
                 }
 
             }
@@ -57,6 +56,13 @@ namespace WinFromMenu
         private void pictureNoVisible_Click(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MenuDeCierre menuDeCierre = new MenuDeCierre();
+            menuDeCierre.ShowDialog();
         }
     }
 }

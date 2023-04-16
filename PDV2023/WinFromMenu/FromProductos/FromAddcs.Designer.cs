@@ -92,7 +92,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1303, 948);
+            panel1.Size = new Size(1303, 1020);
             panel1.TabIndex = 26;
             // 
             // pictureBoxClose
@@ -106,7 +106,7 @@
             pictureBoxClose.IconSize = 40;
             pictureBoxClose.Location = new Point(1263, 0);
             pictureBoxClose.Name = "pictureBoxClose";
-            pictureBoxClose.Size = new Size(40, 734);
+            pictureBoxClose.Size = new Size(40, 806);
             pictureBoxClose.TabIndex = 23;
             pictureBoxClose.TabStop = false;
             pictureBoxClose.Click += pictureBoxClose_Click;
@@ -115,7 +115,7 @@
             // 
             buttonAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonAdd.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAdd.Location = new Point(818, 688);
+            buttonAdd.Location = new Point(818, 755);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(150, 45);
             buttonAdd.TabIndex = 22;
@@ -128,7 +128,7 @@
             buttonGuardar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonGuardar.Enabled = false;
             buttonGuardar.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonGuardar.Location = new Point(1104, 688);
+            buttonGuardar.Location = new Point(1104, 755);
             buttonGuardar.Name = "buttonGuardar";
             buttonGuardar.Size = new Size(150, 45);
             buttonGuardar.TabIndex = 21;
@@ -140,7 +140,7 @@
             // 
             panelDataGridView.Controls.Add(dataGridProductos);
             panelDataGridView.Dock = DockStyle.Bottom;
-            panelDataGridView.Location = new Point(0, 734);
+            panelDataGridView.Location = new Point(0, 806);
             panelDataGridView.Name = "panelDataGridView";
             panelDataGridView.Size = new Size(1303, 214);
             panelDataGridView.TabIndex = 20;
@@ -236,7 +236,7 @@
             buttonImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonImagen.Enabled = false;
             buttonImagen.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonImagen.Location = new Point(992, 584);
+            buttonImagen.Location = new Point(978, 700);
             buttonImagen.Name = "buttonImagen";
             buttonImagen.Size = new Size(150, 45);
             buttonImagen.TabIndex = 19;
@@ -250,7 +250,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(91, 43);
+            label1.Location = new Point(91, 115);
             label1.Name = "label1";
             label1.Size = new Size(148, 38);
             label1.TabIndex = 0;
@@ -262,7 +262,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(91, 99);
+            label2.Location = new Point(91, 171);
             label2.Name = "label2";
             label2.Size = new Size(227, 38);
             label2.TabIndex = 1;
@@ -272,7 +272,7 @@
             // 
             txtImagen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtImagen.Enabled = false;
-            txtImagen.Location = new Point(434, 326);
+            txtImagen.Location = new Point(434, 398);
             txtImagen.Margin = new Padding(6);
             txtImagen.Name = "txtImagen";
             txtImagen.Size = new Size(820, 27);
@@ -284,7 +284,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(97, 215);
+            label3.Location = new Point(97, 287);
             label3.Name = "label3";
             label3.Size = new Size(132, 38);
             label3.TabIndex = 2;
@@ -296,7 +296,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(97, 326);
+            label7.Location = new Point(97, 398);
             label7.Name = "label7";
             label7.Size = new Size(138, 38);
             label7.TabIndex = 17;
@@ -310,7 +310,7 @@
             pictureBoxImagen.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxImagen.BorderStyle = BorderStyle.Fixed3D;
             pictureBoxImagen.Enabled = false;
-            pictureBoxImagen.Location = new Point(973, 417);
+            pictureBoxImagen.Location = new Point(959, 533);
             pictureBoxImagen.Name = "pictureBoxImagen";
             pictureBoxImagen.Size = new Size(200, 161);
             pictureBoxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -323,7 +323,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(91, 151);
+            label4.Location = new Point(91, 223);
             label4.Name = "label4";
             label4.Size = new Size(300, 38);
             label4.TabIndex = 3;
@@ -335,7 +335,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(97, 272);
+            label6.Location = new Point(97, 344);
             label6.Name = "label6";
             label6.Size = new Size(163, 38);
             label6.TabIndex = 5;
@@ -345,7 +345,7 @@
             // 
             txtNombre.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNombre.Enabled = false;
-            txtNombre.Location = new Point(434, 43);
+            txtNombre.Location = new Point(434, 115);
             txtNombre.Margin = new Padding(6);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(820, 27);
@@ -355,7 +355,7 @@
             // 
             txtDescripcion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtDescripcion.Enabled = false;
-            txtDescripcion.Location = new Point(434, 96);
+            txtDescripcion.Location = new Point(434, 168);
             txtDescripcion.Margin = new Padding(6);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(820, 27);
@@ -365,7 +365,7 @@
             // 
             txtCodBarra.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtCodBarra.Enabled = false;
-            txtCodBarra.Location = new Point(434, 151);
+            txtCodBarra.Location = new Point(434, 223);
             txtCodBarra.Margin = new Padding(6);
             txtCodBarra.Name = "txtCodBarra";
             txtCodBarra.Size = new Size(820, 27);
@@ -375,7 +375,7 @@
             // 
             txtPrecio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPrecio.Enabled = false;
-            txtPrecio.Location = new Point(434, 215);
+            txtPrecio.Location = new Point(434, 287);
             txtPrecio.Margin = new Padding(6);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(820, 27);
@@ -387,7 +387,7 @@
             comboConsola.Enabled = false;
             comboConsola.FormattingEnabled = true;
             comboConsola.Items.AddRange(new object[] { "XBOX", "PLAYSTATION", "WI", "NINTENDO", "PC" });
-            comboConsola.Location = new Point(434, 269);
+            comboConsola.Location = new Point(434, 341);
             comboConsola.Margin = new Padding(6);
             comboConsola.Name = "comboConsola";
             comboConsola.Size = new Size(820, 28);
@@ -403,7 +403,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1303, 948);
+            ClientSize = new Size(1303, 1020);
             Controls.Add(panel1);
             DoubleBuffered = true;
             MaximizeBox = false;

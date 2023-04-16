@@ -23,7 +23,7 @@ namespace WinFromMenu
 
         private void btnBorrarUsers_Click(object sender, EventArgs e)
         {
-            bool res = empleado.borrarUsuario(identi);
+            bool res = empleado.borrarUsuario(this.identi);
             if (res == false)
             {
                 MessageBox.Show("USUARIO ELIMINADO CON ÉXITO");
@@ -121,5 +121,10 @@ namespace WinFromMenu
             }
         }
         #endregion
+
+        private void pictureBoxUsers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

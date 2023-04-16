@@ -33,15 +33,19 @@
             pictureBoxLogin = new PictureBox();
             labelUsuario = new Label();
             label1 = new Label();
-            txtUsuario = new TextBox();
+            txtEmail = new TextBox();
             txtPassword = new TextBox();
             btnIniciar = new Button();
             pictureVisible = new FontAwesome.Sharp.IconPictureBox();
             pictureNoVisible = new FontAwesome.Sharp.IconPictureBox();
+            panel1 = new Panel();
+            btnCerrar = new FontAwesome.Sharp.IconPictureBox();
             panelFondoLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureVisible).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureNoVisible).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
             SuspendLayout();
             // 
             // panelFondoLogin
@@ -88,13 +92,13 @@
             label1.TabIndex = 2;
             label1.Text = "CONTRASEÑA";
             // 
-            // txtUsuario
+            // txtEmail
             // 
-            txtUsuario.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtUsuario.Location = new Point(288, 254);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(250, 36);
-            txtUsuario.TabIndex = 3;
+            txtEmail.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtEmail.Location = new Point(288, 254);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(250, 36);
+            txtEmail.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -146,6 +150,31 @@
             pictureNoVisible.TabStop = false;
             pictureNoVisible.Click += pictureNoVisible_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(btnCerrar);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(698, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(100, 522);
+            panel1.TabIndex = 8;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.BackColor = Color.Transparent;
+            btnCerrar.Dock = DockStyle.Top;
+            btnCerrar.IconChar = FontAwesome.Sharp.IconChar.X;
+            btnCerrar.IconColor = Color.White;
+            btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCerrar.IconSize = 43;
+            btnCerrar.Location = new Point(0, 0);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 43);
+            btnCerrar.TabIndex = 0;
+            btnCerrar.TabStop = false;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -153,21 +182,29 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(798, 522);
+            Controls.Add(panel1);
             Controls.Add(pictureNoVisible);
             Controls.Add(pictureVisible);
             Controls.Add(btnIniciar);
             Controls.Add(txtPassword);
-            Controls.Add(txtUsuario);
+            Controls.Add(txtEmail);
             Controls.Add(label1);
             Controls.Add(labelUsuario);
             Controls.Add(panelFondoLogin);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             panelFondoLogin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureVisible).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureNoVisible).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,10 +215,12 @@
         private PictureBox pictureBoxLogin;
         private Label labelUsuario;
         private Label label1;
-        private TextBox txtUsuario;
+        private TextBox txtEmail;
         private TextBox txtPassword;
         private Button btnIniciar;
         private FontAwesome.Sharp.IconPictureBox pictureVisible;
         private FontAwesome.Sharp.IconPictureBox pictureNoVisible;
+        private Panel panel1;
+        private FontAwesome.Sharp.IconPictureBox btnCerrar;
     }
 }

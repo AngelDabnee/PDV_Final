@@ -138,7 +138,7 @@
             // 
             btnAñadirUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAñadirUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAñadirUsers.Location = new Point(0, 436);
+            btnAñadirUsers.Location = new Point(3, 595);
             btnAñadirUsers.Name = "btnAñadirUsers";
             btnAñadirUsers.Size = new Size(150, 45);
             btnAñadirUsers.TabIndex = 26;
@@ -151,7 +151,7 @@
             btnGuardarUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnGuardarUsers.Enabled = false;
             btnGuardarUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGuardarUsers.Location = new Point(286, 436);
+            btnGuardarUsers.Location = new Point(284, 595);
             btnGuardarUsers.Name = "btnGuardarUsers";
             btnGuardarUsers.Size = new Size(150, 45);
             btnGuardarUsers.TabIndex = 25;
@@ -164,7 +164,7 @@
             btnFotoUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnFotoUsers.Enabled = false;
             btnFotoUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnFotoUsers.Location = new Point(155, 332);
+            btnFotoUsers.Location = new Point(158, 491);
             btnFotoUsers.Name = "btnFotoUsers";
             btnFotoUsers.Size = new Size(150, 45);
             btnFotoUsers.TabIndex = 24;
@@ -180,7 +180,7 @@
             pictureBoxUsers.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxUsers.BorderStyle = BorderStyle.Fixed3D;
             pictureBoxUsers.Enabled = false;
-            pictureBoxUsers.Location = new Point(58, 35);
+            pictureBoxUsers.Location = new Point(61, 194);
             pictureBoxUsers.Name = "pictureBoxUsers";
             pictureBoxUsers.Size = new Size(333, 291);
             pictureBoxUsers.SizeMode = PictureBoxSizeMode.StretchImage;

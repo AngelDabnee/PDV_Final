@@ -87,13 +87,13 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1303, 948);
+            panel1.Size = new Size(1303, 1020);
             panel1.TabIndex = 27;
             // 
             // buttonDelet
             // 
             buttonDelet.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonDelet.Location = new Point(1104, 637);
+            buttonDelet.Location = new Point(1102, 755);
             buttonDelet.Name = "buttonDelet";
             buttonDelet.Size = new Size(150, 45);
             buttonDelet.TabIndex = 25;
@@ -109,7 +109,7 @@
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Enabled = false;
-            pictureBox1.Location = new Point(974, 476);
+            pictureBox1.Location = new Point(972, 594);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(200, 161);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -127,7 +127,7 @@
             pictureBoxClose.IconSize = 40;
             pictureBoxClose.Location = new Point(1263, 0);
             pictureBoxClose.Name = "pictureBoxClose";
-            pictureBoxClose.Size = new Size(40, 734);
+            pictureBoxClose.Size = new Size(40, 806);
             pictureBoxClose.TabIndex = 23;
             pictureBoxClose.TabStop = false;
             pictureBoxClose.Click += pictureBoxClose_Click;
@@ -136,7 +136,7 @@
             // 
             panelDataGridView.Controls.Add(dataGridProductos);
             panelDataGridView.Dock = DockStyle.Bottom;
-            panelDataGridView.Location = new Point(0, 734);
+            panelDataGridView.Location = new Point(0, 806);
             panelDataGridView.Name = "panelDataGridView";
             panelDataGridView.Size = new Size(1303, 214);
             panelDataGridView.TabIndex = 20;
@@ -233,7 +233,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(91, 86);
+            label1.Location = new Point(91, 158);
             label1.Name = "label1";
             label1.Size = new Size(148, 38);
             label1.TabIndex = 0;
@@ -245,7 +245,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(91, 142);
+            label2.Location = new Point(91, 214);
             label2.Name = "label2";
             label2.Size = new Size(227, 38);
             label2.TabIndex = 1;
@@ -255,7 +255,7 @@
             // 
             txtImagen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtImagen.Enabled = false;
-            txtImagen.Location = new Point(433, 369);
+            txtImagen.Location = new Point(433, 441);
             txtImagen.Margin = new Padding(6);
             txtImagen.Name = "txtImagen";
             txtImagen.Size = new Size(821, 27);
@@ -267,7 +267,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(97, 258);
+            label3.Location = new Point(97, 330);
             label3.Name = "label3";
             label3.Size = new Size(132, 38);
             label3.TabIndex = 2;
@@ -279,7 +279,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(97, 369);
+            label7.Location = new Point(97, 441);
             label7.Name = "label7";
             label7.Size = new Size(138, 38);
             label7.TabIndex = 17;
@@ -291,7 +291,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(91, 194);
+            label4.Location = new Point(91, 266);
             label4.Name = "label4";
             label4.Size = new Size(300, 38);
             label4.TabIndex = 3;
@@ -303,7 +303,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(97, 315);
+            label6.Location = new Point(97, 387);
             label6.Name = "label6";
             label6.Size = new Size(163, 38);
             label6.TabIndex = 5;
@@ -313,7 +313,7 @@
             // 
             txtNombre.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNombre.Enabled = false;
-            txtNombre.Location = new Point(433, 86);
+            txtNombre.Location = new Point(433, 158);
             txtNombre.Margin = new Padding(6);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(821, 27);
@@ -323,7 +323,7 @@
             // 
             txtDescripcion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtDescripcion.Enabled = false;
-            txtDescripcion.Location = new Point(433, 142);
+            txtDescripcion.Location = new Point(433, 214);
             txtDescripcion.Margin = new Padding(6);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(821, 27);
@@ -333,7 +333,7 @@
             // 
             txtCodBarra.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtCodBarra.Enabled = false;
-            txtCodBarra.Location = new Point(433, 194);
+            txtCodBarra.Location = new Point(433, 266);
             txtCodBarra.Margin = new Padding(6);
             txtCodBarra.Name = "txtCodBarra";
             txtCodBarra.Size = new Size(821, 27);
@@ -343,7 +343,7 @@
             // 
             txtPrecio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPrecio.Enabled = false;
-            txtPrecio.Location = new Point(433, 258);
+            txtPrecio.Location = new Point(433, 330);
             txtPrecio.Margin = new Padding(6);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(821, 27);
@@ -355,7 +355,7 @@
             comboConsola.Enabled = false;
             comboConsola.FormattingEnabled = true;
             comboConsola.Items.AddRange(new object[] { "XBOX", "PLAYSTATION", "WI", "NINTENDO", "PC" });
-            comboConsola.Location = new Point(433, 315);
+            comboConsola.Location = new Point(433, 387);
             comboConsola.Margin = new Padding(6);
             comboConsola.Name = "comboConsola";
             comboConsola.Size = new Size(821, 28);
@@ -367,7 +367,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1303, 948);
+            ClientSize = new Size(1303, 1020);
             Controls.Add(panel1);
             DoubleBuffered = true;
             MaximizeBox = false;
