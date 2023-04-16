@@ -28,7 +28,7 @@ namespace WinFromMenu
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            sesion = sesion.login(txtUsuario.Text, txtPassword.Text);
+            sesion = sesion.login(txtEmail.Text, txtPassword.Text);
             try
             {
                 if (sesion == null)
@@ -38,8 +38,7 @@ namespace WinFromMenu
                 else
                 {
                     Form1.sesion = this.sesion;
-                    this.Close(); //para solo tener una instancia del formulario
-
+                    this.Hide();
                 }
 
             }
@@ -57,6 +56,13 @@ namespace WinFromMenu
         private void pictureNoVisible_Click(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MenuDeCierre menuDeCierre = new MenuDeCierre();
+            menuDeCierre.ShowDialog();
         }
     }
 }

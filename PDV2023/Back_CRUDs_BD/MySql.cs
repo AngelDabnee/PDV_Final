@@ -137,7 +137,7 @@ namespace Back_CRUDs_BD
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
                 //Definimos el comando. 
-                commando = new MySqlCommand($"DELETE FROM {tabla} WHERE idEmpleado={id};");
+                commando = new MySqlCommand($"DELETE FROM {tabla} WHERE id={id};");
                 //Relacionamos el comando con la conexión
                 commando.Connection = con;
                 int res = commando.ExecuteNonQuery();

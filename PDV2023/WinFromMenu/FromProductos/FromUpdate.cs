@@ -28,7 +28,7 @@ namespace WinFromMenu
         {
             if (txtNombre.Enabled == false && txtDescripcion.Enabled == false &&
             txtCodBarra.Enabled == false && txtPrecio.Enabled == false && txtImagen.Enabled == false
-            && comboConsola.Enabled == false && buttonExaminar.Enabled == false && buttonGuardar.Enabled == false)
+            && buttonExaminar.Enabled == false && buttonGuardar.Enabled == false)
             {
                 this.limpiarForm(true);
             }
@@ -38,7 +38,7 @@ namespace WinFromMenu
         {
             Consola valorConsola;
             //Valoramos que tipo de consola eligió el usuario. 
-            switch (comboConsola.SelectedItem.ToString())
+            switch (comboConsolaUpdate.SelectedItem.ToString())
             {
                 case "XBOX":
                     valorConsola = Consola.XBOX;
@@ -59,7 +59,7 @@ namespace WinFromMenu
                     valorConsola = Consola.XBOX;
                     break;
             }
-            bool resultado = prod.modificar(txtNombre.Text, txtDescripcion.Text, double.Parse(txtPrecio.Text), txtCodBarra.Text, txtImagen.Text, valorConsola, identi);
+            bool resultado = prod.modificar(txtNombre.Text, txtDescripcion.Text, double.Parse(txtPrecio.Text), txtCodBarra.Text, txtImagen.Text, valorConsola, this.identi);
             if (resultado == false)
             {
                 MessageBox.Show("ERROR AL MODIFICAR PRODUCTO" + Producto.msgError);
@@ -107,7 +107,7 @@ namespace WinFromMenu
                 txtCodBarra.Text = dataGridProductos.Rows[celdas].Cells[4].Value.ToString();
                 txtPrecio.Text = dataGridProductos.Rows[celdas].Cells[3].Value.ToString();
                 txtImagen.Text = dataGridProductos.Rows[celdas].Cells[5].Value.ToString();
-                comboConsola.SelectedItem = dataGridProductos.Rows[celdas].Cells[6].Value.ToString();
+                comboConsolaUpdate.SelectedItem = dataGridProductos.Rows[celdas].Cells[6].Value.ToString();
                 pictureBoxImagen.ImageLocation = "..\\..\\..\\fotosProductos\\" + txtImagen.Text;//para recargar la foto. 
                 this.identi = (int)dataGridProductos.Rows[celdas].Cells[0].Value;//Convertimos para no tener error de tipos de dato
                                                                                  //Además de esto, esta la usamos, para pasar los datos del producto
@@ -150,8 +150,6 @@ namespace WinFromMenu
                 txtPrecio.Clear();
                 txtImagen.Enabled = true;
                 txtImagen.Clear();
-                comboConsola.Enabled = true;
-                comboConsola.Items.Clear();
                 buttonExaminar.Enabled = true;
                 buttonGuardar.Enabled = true;
 
@@ -169,11 +167,14 @@ namespace WinFromMenu
                 txtPrecio.Clear();
                 txtImagen.Enabled = false;
                 txtImagen.Clear();
-                comboConsola.Enabled = false;///Combobox
-                comboConsola.Items.Clear();
                 buttonExaminar.Enabled = false;
                 buttonGuardar.Enabled = false;
             }
+
+        }
+
+        private void pictureBoxImagen_Click(object sender, EventArgs e)
+        {
 
         }
     }

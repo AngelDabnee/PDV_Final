@@ -92,11 +92,11 @@ namespace Middle_gamestore_PDV
             return res;
         }
 
-        public Empleado login(string nombre, string password)
+        public Empleado login(string email , string password)
         {
             Empleado prodResultado = new Empleado();
 
-            List<object[]> res = this.bd.consulta("usuarios", " nombre='" + nombre + "' AND password = '" + password+"'");
+            List<object[]> res = this.bd.consulta("usuarios", " email='" + email + "' AND password = '" + password+"'");
             //validamos que traig un elemento la lista
             if (res.Count == 1)
             {
@@ -116,7 +116,6 @@ namespace Middle_gamestore_PDV
                 prodResultado.nombre = tempo[1].ToString();
                 prodResultado.apellido = tempo[2].ToString();
                 prodResultado.celular = tempo[3].ToString();
-
                 prodResultado.password = tempo[4].ToString();
                 prodResultado.email = tempo[5].ToString();
                 prodResultado.rol = roles;

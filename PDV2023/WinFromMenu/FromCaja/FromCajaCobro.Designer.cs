@@ -38,10 +38,9 @@
             txtPorCodBarra = new TextBox();
             panelCantidad = new Panel();
             btnCancel = new Button();
-            btnCobrar = new Button();
             panel1 = new Panel();
             txtCambio1 = new TextBox();
-            btnCambio = new Button();
+            btnCobrar = new Button();
             iconcambi = new TextBox();
             label6 = new Label();
             iconoprecio = new TextBox();
@@ -159,7 +158,6 @@
             // 
             panelCantidad.BackColor = Color.Transparent;
             panelCantidad.Controls.Add(btnCancel);
-            panelCantidad.Controls.Add(btnCobrar);
             panelCantidad.Controls.Add(panel1);
             panelCantidad.Dock = DockStyle.Left;
             panelCantidad.Location = new Point(0, 101);
@@ -179,24 +177,11 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
-            // btnCobrar
-            // 
-            btnCobrar.Enabled = false;
-            btnCobrar.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCobrar.Location = new Point(203, 680);
-            btnCobrar.Name = "btnCobrar";
-            btnCobrar.Size = new Size(141, 54);
-            btnCobrar.TabIndex = 3;
-            btnCobrar.Text = "PAGAR";
-            btnCobrar.UseVisualStyleBackColor = true;
-            btnCobrar.Visible = false;
-            btnCobrar.Click += btnCobrar_Click;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(txtCambio1);
-            panel1.Controls.Add(btnCambio);
+            panel1.Controls.Add(btnCobrar);
             panel1.Controls.Add(iconcambi);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(iconoprecio);
@@ -216,31 +201,31 @@
             // 
             // txtCambio1
             // 
-            txtCambio1.BackColor = Color.Gray;
+            txtCambio1.BackColor = Color.White;
             txtCambio1.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtCambio1.ForeColor = SystemColors.Window;
-            txtCambio1.Location = new Point(68, 448);
+            txtCambio1.ForeColor = SystemColors.MenuText;
+            txtCambio1.Location = new Point(68, 522);
             txtCambio1.Name = "txtCambio1";
             txtCambio1.Size = new Size(155, 46);
             txtCambio1.TabIndex = 11;
             // 
-            // btnCambio
+            // btnCobrar
             // 
-            btnCambio.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCambio.Location = new Point(32, 516);
-            btnCambio.Name = "btnCambio";
-            btnCambio.Size = new Size(165, 46);
-            btnCambio.TabIndex = 14;
-            btnCambio.Text = "COBRAR";
-            btnCambio.UseVisualStyleBackColor = true;
-            btnCambio.Click += btnCambio_Click;
+            btnCobrar.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCobrar.Location = new Point(32, 396);
+            btnCobrar.Name = "btnCobrar";
+            btnCobrar.Size = new Size(165, 46);
+            btnCobrar.TabIndex = 14;
+            btnCobrar.Text = "COBRAR";
+            btnCobrar.UseVisualStyleBackColor = true;
+            btnCobrar.Click += btnCobrar_Click;
             // 
             // iconcambi
             // 
             iconcambi.BackColor = SystemColors.ActiveBorder;
             iconcambi.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             iconcambi.ForeColor = SystemColors.InactiveCaptionText;
-            iconcambi.Location = new Point(32, 448);
+            iconcambi.Location = new Point(32, 522);
             iconcambi.Name = "iconcambi";
             iconcambi.Size = new Size(30, 46);
             iconcambi.TabIndex = 12;
@@ -251,7 +236,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(9, 417);
+            label6.Location = new Point(9, 491);
             label6.Name = "label6";
             label6.Size = new Size(104, 28);
             label6.TabIndex = 11;
@@ -270,7 +255,7 @@
             // 
             // txtSubTotal
             // 
-            txtSubTotal.BackColor = Color.Gray;
+            txtSubTotal.BackColor = Color.White;
             txtSubTotal.Enabled = false;
             txtSubTotal.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             txtSubTotal.ForeColor = SystemColors.Window;
@@ -292,9 +277,9 @@
             // 
             // txtCantidadRecibida
             // 
-            txtCantidadRecibida.BackColor = Color.Gray;
+            txtCantidadRecibida.BackColor = Color.White;
             txtCantidadRecibida.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtCantidadRecibida.ForeColor = SystemColors.Window;
+            txtCantidadRecibida.ForeColor = SystemColors.MenuText;
             txtCantidadRecibida.Location = new Point(68, 313);
             txtCantidadRecibida.Name = "txtCantidadRecibida";
             txtCantidadRecibida.Size = new Size(155, 46);
@@ -335,7 +320,7 @@
             // 
             // txtTotal
             // 
-            txtTotal.BackColor = Color.Gray;
+            txtTotal.BackColor = Color.White;
             txtTotal.Enabled = false;
             txtTotal.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             txtTotal.ForeColor = SystemColors.Window;
@@ -476,7 +461,9 @@
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             Name = "FromCajaCobro";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FromCajaCobro";
+            WindowState = FormWindowState.Maximized;
             panelMenuSuperior.ResumeLayout(false);
             panelMenuSuperior.PerformLayout();
             panel2.ResumeLayout(false);
@@ -510,7 +497,6 @@
         private TextBox iconpre;
         private Label label4;
         private Button btnCancel;
-        private Button btnCobrar;
         private TextBox iconcambi;
         private Label label6;
         private Panel panelNomCaja;
@@ -527,7 +513,7 @@
         private DataGridViewTextBoxColumn PRECIO;
         private DataGridViewTextBoxColumn CANTIDAD;
         private DataGridViewTextBoxColumn TOTAL;
-        private Button btnCambio;
+        private Button btnCobrar;
         private Panel panel2;
         private FontAwesome.Sharp.IconPictureBox pictureBoxClose;
         private TextBox txtCambio1;

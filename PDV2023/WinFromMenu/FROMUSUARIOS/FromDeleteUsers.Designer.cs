@@ -133,7 +133,7 @@
             // 
             btnBorrarUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnBorrarUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBorrarUsers.Location = new Point(151, 351);
+            btnBorrarUsers.Location = new Point(188, 500);
             btnBorrarUsers.Name = "btnBorrarUsers";
             btnBorrarUsers.Size = new Size(150, 45);
             btnBorrarUsers.TabIndex = 26;
@@ -149,12 +149,13 @@
             pictureBoxUsers.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxUsers.BorderStyle = BorderStyle.Fixed3D;
             pictureBoxUsers.Enabled = false;
-            pictureBoxUsers.Location = new Point(54, 20);
+            pictureBoxUsers.Location = new Point(91, 169);
             pictureBoxUsers.Name = "pictureBoxUsers";
             pictureBoxUsers.Size = new Size(333, 291);
             pictureBoxUsers.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxUsers.TabIndex = 23;
             pictureBoxUsers.TabStop = false;
+            pictureBoxUsers.Click += pictureBoxUsers_Click;
             // 
             // label4
             // 

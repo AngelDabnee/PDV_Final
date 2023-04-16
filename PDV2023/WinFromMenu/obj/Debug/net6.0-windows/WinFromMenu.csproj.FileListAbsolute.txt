@@ -49,3 +49,4 @@ C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\ob
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromBuscarUsuarios.resources
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.FromCajaCobro.resources
 C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.Login.resources
+C:\Users\Uesda\source\repos\PDV_GameStore_Final\PDV_Final\PDV2023\WinFromMenu\obj\Debug\net6.0-windows\WinFromMenu.MenuDeCierre.resources

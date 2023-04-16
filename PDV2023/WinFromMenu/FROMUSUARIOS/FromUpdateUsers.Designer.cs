@@ -87,7 +87,7 @@
             // 
             btnUpdateUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnUpdateUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpdateUsers.Location = new Point(3, 436);
+            btnUpdateUsers.Location = new Point(3, 478);
             btnUpdateUsers.Name = "btnUpdateUsers";
             btnUpdateUsers.Size = new Size(150, 45);
             btnUpdateUsers.TabIndex = 26;
@@ -100,7 +100,7 @@
             btnGuardarUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnGuardarUsers.Enabled = false;
             btnGuardarUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGuardarUsers.Location = new Point(284, 436);
+            btnGuardarUsers.Location = new Point(284, 478);
             btnGuardarUsers.Name = "btnGuardarUsers";
             btnGuardarUsers.Size = new Size(150, 45);
             btnGuardarUsers.TabIndex = 25;
@@ -113,7 +113,7 @@
             btnFotoUsers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnFotoUsers.Enabled = false;
             btnFotoUsers.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnFotoUsers.Location = new Point(148, 335);
+            btnFotoUsers.Location = new Point(148, 377);
             btnFotoUsers.Name = "btnFotoUsers";
             btnFotoUsers.Size = new Size(150, 45);
             btnFotoUsers.TabIndex = 24;
@@ -129,7 +129,7 @@
             pictureBoxUsers.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxUsers.BorderStyle = BorderStyle.Fixed3D;
             pictureBoxUsers.Enabled = false;
-            pictureBoxUsers.Location = new Point(62, 38);
+            pictureBoxUsers.Location = new Point(62, 80);
             pictureBoxUsers.Name = "pictureBoxUsers";
             pictureBoxUsers.Size = new Size(333, 291);
             pictureBoxUsers.SizeMode = PictureBoxSizeMode.StretchImage;

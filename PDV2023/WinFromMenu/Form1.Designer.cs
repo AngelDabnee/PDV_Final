@@ -45,9 +45,14 @@
             buttonSubMenu = new Button();
             panelFoto = new Panel();
             panelForm = new Panel();
+            panel2 = new Panel();
+            btnCerrarTodo = new FontAwesome.Sharp.IconPictureBox();
             panel1.SuspendLayout();
             panelSubUser.SuspendLayout();
             panelDebajo.SuspendLayout();
+            panelForm.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnCerrarTodo).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -232,12 +237,37 @@
             // panelForm
             // 
             panelForm.BackColor = Color.Transparent;
+            panelForm.Controls.Add(panel2);
             panelForm.Dock = DockStyle.Fill;
             panelForm.Location = new Point(250, 0);
             panelForm.Name = "panelForm";
             panelForm.Size = new Size(908, 851);
             panelForm.TabIndex = 1;
             panelForm.Paint += panelForm_Paint;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnCerrarTodo);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(848, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(60, 851);
+            panel2.TabIndex = 0;
+            // 
+            // btnCerrarTodo
+            // 
+            btnCerrarTodo.BackColor = Color.Transparent;
+            btnCerrarTodo.ForeColor = SystemColors.Control;
+            btnCerrarTodo.IconChar = FontAwesome.Sharp.IconChar.X;
+            btnCerrarTodo.IconColor = SystemColors.Control;
+            btnCerrarTodo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCerrarTodo.IconSize = 40;
+            btnCerrarTodo.Location = new Point(8, 3);
+            btnCerrarTodo.Name = "btnCerrarTodo";
+            btnCerrarTodo.Size = new Size(40, 40);
+            btnCerrarTodo.TabIndex = 0;
+            btnCerrarTodo.TabStop = false;
+            btnCerrarTodo.Click += btnCerrarTodo_Click;
             // 
             // Form1
             // 
@@ -249,6 +279,7 @@
             Controls.Add(panelForm);
             Controls.Add(panel1);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
@@ -256,6 +287,9 @@
             panel1.ResumeLayout(false);
             panelSubUser.ResumeLayout(false);
             panelDebajo.ResumeLayout(false);
+            panelForm.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnCerrarTodo).EndInit();
             ResumeLayout(false);
         }
 
@@ -277,5 +311,7 @@
         private Button btnDeleteUsers;
         private Button btnAddUsers;
         private Button btnCaja;
+        private Panel panel2;
+        private FontAwesome.Sharp.IconPictureBox btnCerrarTodo;
     }
 }

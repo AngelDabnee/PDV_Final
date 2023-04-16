@@ -158,7 +158,7 @@ namespace WinFromMenu
             Login login = new Login();
             login.ShowDialog();
             //AQUI!!!
-            if (Form1.sesion.rol == Roles.USUARIO)
+            if (Form1.sesion != null && Form1.sesion.rol == Roles.USUARIO)
             {
                 this.Hide();
                 FromCajaCobro caja = new FromCajaCobro();
@@ -167,6 +167,16 @@ namespace WinFromMenu
                 login.ShowDialog();
                 this.Show();
             }
+            if (Form1.sesion != null && Form1.sesion.rol == Roles.ADMIN)
+            {
+                this.Show();
+            }
+        }
+
+        private void btnCerrarTodo_Click(object sender, EventArgs e)
+        {
+            MenuDeCierre menuDeCierre = new MenuDeCierre();
+            menuDeCierre.ShowDialog();
         }
     }
 }
