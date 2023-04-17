@@ -69,6 +69,7 @@ namespace WinFromMenu
                 this.limpiarForm(false);
                 this.FromAddcs_Load(sender, e);
             }
+            //checargit
         }
         //------------------------------Método para cargar el formulario. ----------------------------
         private void FromAddcs_Load(object sender, EventArgs e)
